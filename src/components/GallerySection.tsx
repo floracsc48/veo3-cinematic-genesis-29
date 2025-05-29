@@ -1,12 +1,12 @@
-
 import React, { useState } from 'react';
 import { Play, Pause, Volume, VolumeOff, Plus } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import VideoModal from './VideoModal';
 
 const GallerySection: React.FC = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [mutedVideos, setMutedVideos] = useState<Set<number>>(new Set());
-  const [expandedPrompts, setExpandedPrompts] = useState<Set<number>>(new Set());
+  const [modalData, setModalData] = useState<{videoUrl: string, prompt: string} | null>(null);
   const { ref, isIntersecting } = useIntersectionObserver();
 
   const galleryItems = [
@@ -59,19 +59,16 @@ const GallerySection: React.FC = () => {
     setMutedVideos(newMutedVideos);
   };
 
-  const handlePromptToggle = (index: number, e: React.MouseEvent) => {
+  const handlePromptExpand = (index: number, e: React.MouseEvent) => {
     e.stopPropagation();
-    const newExpandedPrompts = new Set(expandedPrompts);
-    if (expandedPrompts.has(index)) {
-      newExpandedPrompts.delete(index);
-    } else {
-      newExpandedPrompts.add(index);
-    }
-    setExpandedPrompts(newExpandedPrompts);
+    setModalData({
+      videoUrl: galleryItems[index].videoUrl,
+      prompt: galleryItems[index].prompt
+    });
   };
 
-  const truncatePrompt = (prompt: string, expanded: boolean) => {
-    if (expanded || prompt.length <= 67) return prompt;
+  const truncatePrompt = (prompt: string) => {
+    if (prompt.length <= 67) return prompt;
     return prompt.substring(0, 67) + '...';
   };
 
@@ -118,11 +115,10 @@ const GallerySection: React.FC = () => {
                   }}
                 />
                 
-                {/* Controls in bottom right */}
                 <div className="absolute bottom-3 right-3 flex space-x-2">
                   <button
                     onClick={(e) => handleVolumeToggle(index, e)}
-                    className="glass p-2 rounded-full hover:bg-white/20 transition-colors duration-200"
+                    className="button-3d p-2"
                   >
                     {mutedVideos.has(index) ? (
                       <VolumeOff size={16} strokeWidth={1} className="text-white" />
@@ -132,7 +128,7 @@ const GallerySection: React.FC = () => {
                   </button>
                   <button
                     onClick={() => handleVideoToggle(index)}
-                    className="glass p-2 rounded-full hover:bg-white/20 transition-colors duration-200"
+                    className="button-3d p-2"
                   >
                     {playingVideo === index ? (
                       <Pause size={16} strokeWidth={1} className="text-white" />
@@ -146,20 +142,14 @@ const GallerySection: React.FC = () => {
               <div className="p-4">
                 <div className="flex items-start justify-between">
                   <p className="text-white/70 text-sm font-light leading-relaxed flex-1 mr-2">
-                    {truncatePrompt(item.prompt, expandedPrompts.has(index))}
+                    {truncatePrompt(item.prompt)}
                   </p>
                   {item.prompt.length > 67 && (
                     <button
-                      onClick={(e) => handlePromptToggle(index, e)}
-                      className="glass p-1 rounded-full hover:bg-white/20 transition-colors duration-200 flex-shrink-0"
+                      onClick={(e) => handlePromptExpand(index, e)}
+                      className="button-3d p-1 flex-shrink-0"
                     >
-                      <Plus 
-                        size={16} 
-                        strokeWidth={1} 
-                        className={`text-white transition-transform duration-200 ${
-                          expandedPrompts.has(index) ? 'rotate-45' : ''
-                        }`} 
-                      />
+                      <Plus size={16} strokeWidth={1} className="text-white" />
                     </button>
                   )}
                 </div>
@@ -174,12 +164,19 @@ const GallerySection: React.FC = () => {
           </p>
           <button 
             onClick={() => document.querySelector('#interface')?.scrollIntoView({ behavior: 'smooth' })}
-            className="neuro-button px-8 py-4 text-white font-light tracking-wide"
+            className="button-3d px-8 py-4 text-white font-light tracking-wide"
           >
             Try Veo 3 Interface
           </button>
         </div>
       </div>
+
+      <VideoModal
+        isOpen={!!modalData}
+        onClose={() => setModalData(null)}
+        videoUrl={modalData?.videoUrl || ''}
+        prompt={modalData?.prompt || ''}
+      />
     </section>
   );
 };
