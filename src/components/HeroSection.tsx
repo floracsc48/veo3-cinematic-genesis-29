@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { Copy, Check } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface HeroSectionProps {
@@ -13,8 +12,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   const [inviteCode, setInviteCode] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   
   const { ref, isIntersecting } = useIntersectionObserver();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleGetAccess = () => {
     if (hasAccess) return;
@@ -46,6 +47,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
     window.open('https://pixeldrain.com/api/file/qYNYLRhk?download', '_blank');
   };
 
+  const toggleVideoPlayback = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
+
   return (
     <section 
       ref={ref}
@@ -53,17 +65,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
     >
       {/* Video Background */}
       <video
+        ref={videoRef}
         className="hero-video"
         autoPlay
         muted
         loop
         playsInline
       >
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        <source src="https://deepmind.google/api/blob/website/media/veo__cover_s0RKXWX.mp4" type="video/mp4" />
       </video>
       
       {/* Video Overlay */}
       <div className="video-overlay" />
+
+      {/* Video Play/Pause Control */}
+      <button
+        onClick={toggleVideoPlayback}
+        className="absolute bottom-8 right-8 z-20 glass p-3 rounded-full hover:bg-white/20 transition-all duration-300 opacity-70 hover:opacity-100"
+        title={isVideoPlaying ? "Pause video" : "Play video"}
+      >
+        {isVideoPlaying ? (
+          <Pause size={20} strokeWidth={1} className="text-white" />
+        ) : (
+          <Play size={20} strokeWidth={1} className="text-white" />
+        )}
+      </button>
 
       {/* Content */}
       <div className={`relative z-10 text-center px-4 max-w-4xl mx-auto animate-in ${

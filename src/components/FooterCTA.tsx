@@ -55,7 +55,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
             
             <button
               onClick={scrollToTop}
-              className="glass px-6 py-4 text-white/70 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2"
+              className="glass rounded-full px-6 py-4 text-white/70 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 hover:scale-105"
             >
               <ArrowUp size={20} strokeWidth={1} />
               <span>Back to Top</span>

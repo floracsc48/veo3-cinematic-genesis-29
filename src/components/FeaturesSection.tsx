@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Sparkles, Zap, Infinity, Globe } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import TypingAnimation from './TypingAnimation';
 
 const FeaturesSection: React.FC = () => {
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -37,7 +37,15 @@ const FeaturesSection: React.FC = () => {
           className={`text-center mb-20 animate-in ${isIntersecting ? 'visible' : ''}`}
         >
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
-            Revolutionary
+            {isIntersecting ? (
+              <TypingAnimation 
+                text="Revolutionary"
+                speed={120}
+                className="inline-block"
+              />
+            ) : (
+              'Revolutionary'
+            )}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Features</span>
           </h2>
           <p className="text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
