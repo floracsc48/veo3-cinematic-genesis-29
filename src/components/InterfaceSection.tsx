@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { ChevronDown, Lock, Play } from 'lucide-react';
+import { ChevronDown, Lock, ArrowUp } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const InterfaceSection: React.FC = () => {
   const [selectedMode, setSelectedMode] = useState('Text to Video');
   const [prompt, setPrompt] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-  const [generationStep, setGenerationStep] = useState(0);
+  const [chatMessages, setChatMessages] = useState<Array<{id: number, text: string, isUser: boolean}>>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -26,30 +26,30 @@ const InterfaceSection: React.FC = () => {
   ];
 
   const getCurrentDate = () => {
-    return new Date().toLocaleDateString();
+    return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!prompt.trim()) return;
+    if (!prompt.trim() || isGenerating) return;
 
+    const userMessage = { id: Date.now(), text: prompt, isUser: true };
+    setChatMessages(prev => [...prev, userMessage]);
+    
+    const currentPrompt = prompt;
+    setPrompt('');
     setIsGenerating(true);
-    setGenerationStep(0);
 
-    const steps = [
-      "Message sent to model...",
-      "Generation started...",
-      "Video generated successfully! Duration: 17s\nTo see the result you need to download the app."
-    ];
-
-    for (let i = 0; i < steps.length; i++) {
-      setTimeout(() => {
-        setGenerationStep(i + 1);
-        if (i === steps.length - 1) {
-          setIsGenerating(false);
-        }
-      }, (i + 1) * 1000);
-    }
+    // Simulate response delay
+    setTimeout(() => {
+      const botMessage = { 
+        id: Date.now() + 1, 
+        text: `Video generated successfully! Duration: 17s\nTo see the result you need to download the app.`, 
+        isUser: false 
+      };
+      setChatMessages(prev => [...prev, botMessage]);
+      setIsGenerating(false);
+    }, 2000);
   };
 
   return (
@@ -76,15 +76,49 @@ const InterfaceSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Main Interface */}
-          <div className="space-y-8">
-            <div className="text-center">
-              <p className="text-white/70 font-light text-lg">
-                Type in the prompt box to start
-              </p>
-            </div>
+          {/* Separator line */}
+          <div className="border-t border-white/10 mb-8"></div>
 
-            {/* Mode Dropdown */}
+          {/* Main prompt text */}
+          <div className="text-center mb-8">
+            <p className="text-white/70 font-light text-lg">
+              Type in the prompt box to start
+            </p>
+          </div>
+
+          {/* Chat area */}
+          <div className="min-h-[200px] mb-8 glass p-4 rounded-lg">
+            {chatMessages.length === 0 ? (
+              <div className="text-white/40 text-center py-8">
+                Chat messages will appear here...
+              </div>
+            ) : (
+              <div className="space-y-4 max-h-60 overflow-y-auto">
+                {chatMessages.map((message) => (
+                  <div key={message.id} className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`max-w-[80%] p-3 rounded-lg ${
+                      message.isUser 
+                        ? 'bg-blue-500/20 text-white' 
+                        : 'bg-gray-600/20 text-white/80'
+                    }`}>
+                      <p className="text-sm font-light whitespace-pre-line">{message.text}</p>
+                    </div>
+                  </div>
+                ))}
+                {isGenerating && (
+                  <div className="flex justify-start">
+                    <div className="bg-gray-600/20 text-white/80 p-3 rounded-lg">
+                      <p className="text-sm font-light">Generating video...</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Bottom controls */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {/* Mode Dropdown - Left */}
             <div className="relative">
               <button
                 onClick={() => setShowDropdown(!showDropdown)}
@@ -101,7 +135,7 @@ const InterfaceSection: React.FC = () => {
               </button>
 
               {showDropdown && (
-                <div className="absolute top-full left-0 right-0 mt-2 glass rounded-lg overflow-hidden z-10">
+                <div className="absolute bottom-full left-0 right-0 mb-2 glass rounded-lg overflow-hidden z-10">
                   {modes.map((mode) => (
                     <button
                       key={mode.name}
@@ -129,67 +163,49 @@ const InterfaceSection: React.FC = () => {
               )}
             </div>
 
-            {/* Sample Prompts */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {samplePrompts.map((samplePrompt, index) => (
-                <button
-                  key={index}
-                  onClick={() => setPrompt(samplePrompt)}
-                  className="glass p-3 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-light text-left"
-                >
-                  {samplePrompt}
-                </button>
-              ))}
-            </div>
-
-            {/* Prompt Input */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="relative">
+            {/* Prompt Input - Center and Right */}
+            <div className="md:col-span-2">
+              <form onSubmit={handleSubmit} className="flex space-x-2">
                 <textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="Describe the video you want to create..."
-                  rows={4}
-                  className="w-full glass p-4 rounded-lg text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                  rows={3}
+                  className="flex-1 glass p-4 rounded-lg text-white placeholder-white/50 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                 />
-              </div>
+                <button
+                  type="submit"
+                  disabled={!prompt.trim() || isGenerating}
+                  className="glass p-4 rounded-lg hover:bg-white/20 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ArrowUp size={20} strokeWidth={1} className="text-white" />
+                </button>
+              </form>
+            </div>
+          </div>
 
+          {/* Sample Prompts */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            {samplePrompts.map((samplePrompt, index) => (
               <button
-                type="submit"
-                disabled={!prompt.trim() || isGenerating}
-                className="neuro-button px-8 py-3 text-white font-light tracking-wide disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+                key={index}
+                onClick={() => setPrompt(samplePrompt)}
+                className="glass p-3 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-light text-left"
               >
-                <Play size={20} strokeWidth={1} />
-                <span>{isGenerating ? 'Generating...' : 'Generate Video'}</span>
+                {samplePrompt}
               </button>
-            </form>
+            ))}
+          </div>
 
-            {/* Generation Status */}
-            {generationStep > 0 && (
-              <div className="glass-card p-6 space-y-3">
-                {generationStep >= 1 && (
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                    <span className="text-white/70 font-light">Message sent to model...</span>
-                  </div>
-                )}
-                {generationStep >= 2 && (
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-                    <span className="text-white/70 font-light">Generation started...</span>
-                  </div>
-                )}
-                {generationStep >= 3 && (
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full" />
-                    <div className="text-white/70 font-light">
-                      <div>Video generated successfully! Duration: 17s</div>
-                      <div className="text-blue-400">To see the result you need to download the app.</div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
+          {/* Generate button - Bottom Left */}
+          <div className="flex justify-start">
+            <button
+              onClick={handleSubmit}
+              disabled={!prompt.trim() || isGenerating}
+              className="neuro-button px-6 py-3 text-white font-light tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isGenerating ? 'Generating...' : 'Generate Video'}
+            </button>
           </div>
         </div>
       </div>
