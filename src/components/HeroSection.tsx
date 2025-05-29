@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -15,6 +14,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   
   const { ref, isIntersecting } = useIntersectionObserver();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -50,7 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   };
 
   const toggleVideoPlayback = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !videoError) {
       if (isVideoPlaying) {
         videoRef.current.pause();
       } else {
@@ -60,38 +61,65 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
     }
   };
 
+  const handleVideoLoad = () => {
+    console.log('Video loaded successfully');
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
+
+  const handleVideoError = () => {
+    console.error('Video failed to load');
+    setVideoError(true);
+    setVideoLoaded(false);
+  };
+
   return (
     <section 
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Video Background */}
-      <video
-        ref={videoRef}
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="https://deepmind.google/api/blob/website/media/veo__cover_s0RKXWX.mp4" type="video/mp4" />
-      </video>
+      {/* Background */}
+      {!videoError ? (
+        <>
+          {/* Video Background */}
+          <video
+            ref={videoRef}
+            className={`hero-video transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadedData={handleVideoLoad}
+            onError={handleVideoError}
+            onCanPlay={handleVideoLoad}
+          >
+            <source src="https://deepmind.google/api/blob/website/media/veo__cover_s0RKXWX.mp4" type="video/mp4" />
+          </video>
+        </>
+      ) : null}
+      
+      {/* Fallback gradient background */}
+      {(videoError || !videoLoaded) && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 opacity-90" />
+      )}
       
       {/* Video Overlay */}
       <div className="video-overlay" />
 
-      {/* Video Play/Pause Control */}
-      <button
-        onClick={toggleVideoPlayback}
-        className="absolute bottom-8 right-8 z-20 glass p-3 rounded-full hover:bg-white/20 transition-all duration-300 opacity-70 hover:opacity-100"
-        title={isVideoPlaying ? "Pause video" : "Play video"}
-      >
-        {isVideoPlaying ? (
-          <Pause size={20} strokeWidth={1} className="text-white" />
-        ) : (
-          <Play size={20} strokeWidth={1} className="text-white" />
-        )}
-      </button>
+      {/* Video Play/Pause Control - only show if video is loaded and no error */}
+      {videoLoaded && !videoError && (
+        <button
+          onClick={toggleVideoPlayback}
+          className="absolute bottom-8 right-8 z-20 glass p-3 rounded-full hover:bg-white/20 transition-all duration-300 opacity-70 hover:opacity-100"
+          title={isVideoPlaying ? "Pause video" : "Play video"}
+        >
+          {isVideoPlaying ? (
+            <Pause size={20} strokeWidth={1} className="text-white" />
+          ) : (
+            <Play size={20} strokeWidth={1} className="text-white" />
+          )}
+        </button>
+      )}
 
       {/* Content */}
       <div className={`relative z-10 text-center px-4 max-w-4xl mx-auto animate-in ${
