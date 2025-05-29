@@ -1,4 +1,3 @@
-
 export interface Translation {
   // Navigation
   features: string;
@@ -32,6 +31,9 @@ export interface Translation {
   continuousInnovation: string;
   continuousInnovationDesc: string;
 
+  // Audio Video Section
+  audioVideoDescription: string;
+
   // Footer CTA Section
   readyToCreate: string;
   amazingVideos: string;
@@ -49,6 +51,20 @@ export interface Translation {
     question: string;
     answer: string;
   }>;
+
+  // Footer
+  footerDescription: string;
+  followUs: string;
+  product: string;
+  models: string;
+  modelsDescription: string;
+  legal: string;
+  privacyPolicy: string;
+  termsOfService: string;
+  allRightsReserved: string;
+  googleProducts: string;
+  privacy: string;
+  terms: string;
 
   // Common
   close: string;
@@ -87,6 +103,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Continuous Innovation",
     continuousInnovationDesc: "Regular updates with new features and improvements to keep you ahead.",
 
+    audioVideoDescription: "Veo 3 lets you add sound effects, ambient noise, and even dialogue to your creations – generating all audio natively. It also delivers best in class quality, excelling in physics, realism and prompt adherence.",
+
     readyToCreate: "Ready to Create",
     amazingVideos: "Amazing Videos?",
     footerCtaDescription: "Join thousands of creators who are already transforming their ideas into stunning videos with Google Veo 3.",
@@ -116,6 +134,19 @@ export const translations: Record<string, Translation> = {
         answer: "Yes, we offer a limited free trial for new users to experience the capabilities of Veo 3."
       }
     ],
+    
+    footerDescription: "The future of AI-powered video generation. Create stunning, photorealistic videos from simple text descriptions.",
+    followUs: "Follow us",
+    product: "Product",
+    models: "Models",
+    modelsDescription: "Build with our next generation AI systems",
+    legal: "Legal",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    allRightsReserved: "All rights reserved.",
+    googleProducts: "Google Products",
+    privacy: "Privacy",
+    terms: "Terms",
     
     close: "Close",
     loading: "Loading...",
@@ -152,6 +183,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Непрерывные инновации",
     continuousInnovationDesc: "Регулярные обновления с новыми функциями и улучшениями, чтобы держать вас впереди.",
 
+    audioVideoDescription: "Veo 3 позволяет добавлять звуковые эффекты, окружающие звуки и даже диалоги к вашим творениям - генерируя все аудио нативно. Также обеспечивает лучшее в классе качество, превосходя в физике, реализме и соответствии промптам.",
+
     readyToCreate: "Готовы создавать",
     amazingVideos: "потрясающие видео?",
     footerCtaDescription: "Присоединяйтесь к тысячам создателей, которые уже превращают свои идеи в потрясающие видео с Google Veo 3.",
@@ -181,6 +214,19 @@ export const translations: Record<string, Translation> = {
         answer: "Да, мы предлагаем ограниченную бесплатную пробную версию для новых пользователей, чтобы они могли оценить возможности Veo 3."
       }
     ],
+    
+    footerDescription: "Будущее генерации видео с помощью ИИ. Создавайте потрясающие, фотореалистичные видео из простых текстовых описаний.",
+    followUs: "Следите за нами",
+    product: "Продукт",
+    models: "Модели",
+    modelsDescription: "Создавайте с нашими системами ИИ нового поколения",
+    legal: "Правовая информация",
+    privacyPolicy: "Политика конфиденциальности",
+    termsOfService: "Условия использования",
+    allRightsReserved: "Все права защищены.",
+    googleProducts: "Продукты Google",
+    privacy: "Конфиденциальность",
+    terms: "Условия",
     
     close: "Закрыть",
     loading: "Загрузка...",
@@ -217,6 +263,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "持续创新",
     continuousInnovationDesc: "定期更新新功能和改进，让您保持领先。",
 
+    audioVideoDescription: "Veo 3让您可以为您的创作添加声音效果、环境噪音甚至对话 - 原生生成所有音频。它还提供同类最佳质量，在物理学、现实主义和提示遵循方面表现出色。",
+
     readyToCreate: "准备创建",
     amazingVideos: "令人惊叹的视频？",
     footerCtaDescription: "加入已经使用Google Veo 3将想法转化为令人惊叹视频的数千名创作者。",
@@ -246,6 +294,19 @@ export const translations: Record<string, Translation> = {
         answer: "是的，我们为新用户提供有限的免费试用，以体验Veo 3的功能。"
       }
     ],
+    
+    footerDescription: "AI驱动视频生成的未来。从简单的文本描述创建令人惊叹的、逼真的视频。",
+    followUs: "关注我们",
+    product: "产品",
+    models: "模型",
+    modelsDescription: "使用我们的下一代AI系统构建",
+    legal: "法律",
+    privacyPolicy: "隐私政策",
+    termsOfService: "服务条款",
+    allRightsReserved: "版权所有。",
+    googleProducts: "Google产品",
+    privacy: "隐私",
+    terms: "条款",
     
     close: "关闭",
     loading: "加载中...",
@@ -282,6 +343,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "निरंतर नवाचार",
     continuousInnovationDesc: "आपको आगे रखने के लिए नई सुविधाओं और सुधारों के साथ नियमित अपडेट।",
 
+    audioVideoDescription: "Veo 3 आपको अपनी रचनाओं में ध्वनि प्रभाव, परिवेशी शोर और यहां तक कि संवाद जोड़ने की सुविधा देता है - सभी ऑडियो को मूल रूप से उत्पन्न करता है। यह भौतिकी, यथार्थवाद और प्रॉम्प्ट पालन में उत्कृष्टता के साथ सर्वोत्तम गुणवत्ता भी प्रदान करता है।",
+
     readyToCreate: "बनाने के लिए तैयार",
     amazingVideos: "अद्भुत वीडियो?",
     footerCtaDescription: "हजारों रचनाकारों में शामिल हों जो पहले से ही Google Veo 3 के साथ अपने विचारों को शानदार वीडियो में बदल रहे हैं।",
@@ -311,6 +374,19 @@ export const translations: Record<string, Translation> = {
         answer: "हां, हम नए उपयोगकर्ताओं के लिए Veo 3 की क्षमताओं का अनुभव करने के लिए सीमित निःशुल्क परीक्षण प्रदान करते हैं।"
       }
     ],
+    
+    footerDescription: "AI-संचालित वीडियो जेनरेशन का भविष्य। साधारण पाठ विवरण से शानदार, फोटो-रियलिस्टिक वीडियो बनाएं।",
+    followUs: "हमें फॉलो करें",
+    product: "उत्पाद",
+    models: "मॉडल",
+    modelsDescription: "हमारी अगली पीढ़ी की AI प्रणालियों के साथ निर्माण करें",
+    legal: "कानूनी",
+    privacyPolicy: "गोपनीयता नीति",
+    termsOfService: "सेवा की शर्तें",
+    allRightsReserved: "सभी अधिकार सुरक्षित।",
+    googleProducts: "Google उत्पाद",
+    privacy: "गोपनीयता",
+    terms: "शर्तें",
     
     close: "बंद करें",
     loading: "लोड हो रहा है...",
@@ -347,6 +423,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Innovación Continua",
     continuousInnovationDesc: "Actualizaciones regulares con nuevas características y mejoras para mantenerte a la vanguardia.",
 
+    audioVideoDescription: "Veo 3 te permite agregar efectos de sonido, ruido ambiental e incluso diálogos a tus creaciones, generando todo el audio de manera nativa. También ofrece la mejor calidad de su clase, sobresaliendo en física, realismo y adherencia a las indicaciones.",
+
     readyToCreate: "¿Listo para crear",
     amazingVideos: "videos increíbles?",
     footerCtaDescription: "Únete a miles de creadores que ya están transformando sus ideas en videos impresionantes con Google Veo 3.",
@@ -376,6 +454,19 @@ export const translations: Record<string, Translation> = {
         answer: "Sí, ofrecemos una prueba gratuita limitada para nuevos usuarios para experimentar las capacidades de Veo 3."
       }
     ],
+    
+    footerDescription: "El futuro de la generación de video con IA. Crea videos impresionantes y fotorrealistas a partir de simples descripciones de texto.",
+    followUs: "Síguenos",
+    product: "Producto",
+    models: "Modelos",
+    modelsDescription: "Construye con nuestros sistemas de IA de próxima generación",
+    legal: "Legal",
+    privacyPolicy: "Política de Privacidad",
+    termsOfService: "Términos de Servicio",
+    allRightsReserved: "Todos los derechos reservados.",
+    googleProducts: "Productos de Google",
+    privacy: "Privacidad",
+    terms: "Términos",
     
     close: "Cerrar",
     loading: "Cargando...",
@@ -412,6 +503,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Innovation Continue",
     continuousInnovationDesc: "Mises à jour régulières avec de nouvelles fonctionnalités et améliorations pour vous garder en avance.",
 
+    audioVideoDescription: "Veo 3 vous permet d'ajouter des effets sonores, du bruit ambiant et même des dialogues à vos créations - générant tout l'audio de manière native. Il offre également une qualité de premier plan, excellant en physique, réalisme et adhérence aux prompts.",
+
     readyToCreate: "Prêt à créer des",
     amazingVideos: "vidéos incroyables ?",
     footerCtaDescription: "Rejoignez des milliers de créateurs qui transforment déjà leurs idées en vidéos époustouflantes avec Google Veo 3.",
@@ -441,6 +534,19 @@ export const translations: Record<string, Translation> = {
         answer: "Oui, nous offrons un essai gratuit limité pour les nouveaux utilisateurs pour découvrir les capacités de Veo 3."
       }
     ],
+    
+    footerDescription: "L'avenir de la génération vidéo alimentée par l'IA. Créez des vidéos époustouflantes et photoréalistes à partir de simples descriptions de texte.",
+    followUs: "Suivez-nous",
+    product: "Produit",
+    models: "Modèles",
+    modelsDescription: "Construisez avec nos systèmes IA de nouvelle génération",
+    legal: "Légal",
+    privacyPolicy: "Politique de Confidentialité",
+    termsOfService: "Conditions d'Utilisation",
+    allRightsReserved: "Tous droits réservés.",
+    googleProducts: "Produits Google",
+    privacy: "Confidentialité",
+    terms: "Conditions",
     
     close: "Fermer",
     loading: "Chargement...",
@@ -477,8 +583,10 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "ابتكار مستمر",
     continuousInnovationDesc: "تحديثات منتظمة بميزات وتحسينات جديدة لإبقائك في المقدمة.",
 
+    audioVideoDescription: "يتيح لك Veo 3 إضافة مؤثرات صوتية وضوضاء محيطة وحتى حوارات إلى إبداعاتك - ينتج كل الصوت بشكل أصلي. كما يقدم أفضل جودة في فئته، متفوقاً في الفيزياء والواقعية والالتزام بالمطالبات.",
+
     readyToCreate: "جاهز لإنشاء",
-    amazingVideos: "مقاطع فيديو مذهلة؟",
+    amazingVideos: "مقاطع فيديو مذهلة?",
     footerCtaDescription: "انضم إلى آلاف المبدعين الذين يحولون أفكارهم بالفعل إلى مقاطع فيديو مذهلة مع Google Veo 3.",
     downloadVeoNow: "تحميل Veo الآن",
     backToTop: "العودة للأعلى",
@@ -506,6 +614,19 @@ export const translations: Record<string, Translation> = {
         answer: "نعم، نقدم نسخة تجريبية مجانية محدودة للمستخدمين الجدد لتجربة قدرات Veo 3."
       }
     ],
+    
+    footerDescription: "مستقبل إنتاج الفيديو المدعوم بالذكاء الاصطناعي. أنشئ مقاطع فيديو مذهلة وواقعية من أوصاف نصية بسيطة.",
+    followUs: "تابعنا",
+    product: "المنتج",
+    models: "النماذج",
+    modelsDescription: "ابنِ مع أنظمة الذكاء الاصطناعي من الجيل القادم",
+    legal: "قانوني",
+    privacyPolicy: "سياسة الخصوصية",
+    termsOfService: "شروط الخدمة",
+    allRightsReserved: "جميع الحقوق محفوظة.",
+    googleProducts: "منتجات Google",
+    privacy: "الخصوصية",
+    terms: "الشروط",
     
     close: "إغلاق",
     loading: "جاري التحميل...",
@@ -542,6 +663,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Inovação Contínua",
     continuousInnovationDesc: "Atualizações regulares com novos recursos e melhorias para mantê-lo à frente.",
 
+    audioVideoDescription: "Veo 3 permite adicionar efeitos sonoros, ruído ambiente e até diálogos às suas criações - gerando todo o áudio nativamente. Também oferece qualidade de primeira classe, excelindo em física, realismo e aderência aos prompts.",
+
     readyToCreate: "Pronto para criar",
     amazingVideos: "vídeos incríveis?",
     footerCtaDescription: "Junte-se a milhares de criadores que já estão transformando suas ideias em vídeos impressionantes com Google Veo 3.",
@@ -571,6 +694,19 @@ export const translations: Record<string, Translation> = {
         answer: "Sim, oferecemos um teste gratuito limitado para novos usuários experimentarem as capacidades do Veo 3."
       }
     ],
+    
+    footerDescription: "O futuro da geração de vídeo alimentada por IA. Crie vídeos impressionantes e fotorrealistas a partir de simples descrições de texto.",
+    followUs: "Siga-nos",
+    product: "Produto",
+    models: "Modelos",
+    modelsDescription: "Construa com nossos sistemas de IA de próxima geração",
+    legal: "Legal",
+    privacyPolicy: "Política de Privacidade",
+    termsOfService: "Termos de Serviço",
+    allRightsReserved: "Todos os direitos reservados.",
+    googleProducts: "Produtos Google",
+    privacy: "Privacidade",
+    terms: "Termos",
     
     close: "Fechar",
     loading: "Carregando...",
@@ -607,6 +743,8 @@ export const translations: Record<string, Translation> = {
     continuousInnovation: "Kontinuierliche Innovation",
     continuousInnovationDesc: "Regelmäßige Updates mit neuen Funktionen und Verbesserungen, um Sie an der Spitze zu halten.",
 
+    audioVideoDescription: "Veo 3 ermöglicht es Ihnen, Soundeffekte, Umgebungsgeräusche und sogar Dialoge zu Ihren Kreationen hinzuzufügen - alle Audio nativ zu generieren. Es liefert auch erstklassige Qualität und zeichnet sich in Physik, Realismus und Prompt-Einhaltung aus.",
+
     readyToCreate: "Bereit, erstaunliche",
     amazingVideos: "Videos zu erstellen?",
     footerCtaDescription: "Schließen Sie sich Tausenden von Erstellern an, die bereits ihre Ideen mit Google Veo 3 in atemberaubende Videos verwandeln.",
@@ -636,6 +774,19 @@ export const translations: Record<string, Translation> = {
         answer: "Ja, wir bieten eine begrenzte kostenlose Testversion für neue Benutzer an, um die Fähigkeiten von Veo 3 zu erleben."
       }
     ],
+    
+    footerDescription: "Die Zukunft der KI-gestützten Videogenerierung. Erstellen Sie atemberaubende, fotorealistische Videos aus einfachen Textbeschreibungen.",
+    followUs: "Folgen Sie uns",
+    product: "Produkt",
+    models: "Modelle",
+    modelsDescription: "Bauen Sie mit unseren KI-Systemen der nächsten Generation",
+    legal: "Rechtliches",
+    privacyPolicy: "Datenschutzrichtlinie",
+    termsOfService: "Nutzungsbedingungen",
+    allRightsReserved: "Alle Rechte vorbehalten.",
+    googleProducts: "Google-Produkte",
+    privacy: "Datenschutz",
+    terms: "Bedingungen",
     
     close: "Schließen",
     loading: "Laden...",
