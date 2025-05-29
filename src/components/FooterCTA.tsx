@@ -1,24 +1,22 @@
-
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
-
 interface FooterCTAProps {
   hasAccess: boolean;
   onGetAccessClick: () => void;
   onDownloadClick: () => void;
 }
-
-const FooterCTA: React.FC<FooterCTAProps> = ({ 
-  hasAccess, 
-  onGetAccessClick, 
-  onDownloadClick 
+const FooterCTA: React.FC<FooterCTAProps> = ({
+  hasAccess,
+  onGetAccessClick,
+  onDownloadClick
 }) => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="py-32 px-4 bg-gradient-to-t from-black/50 to-transparent">
+  return <section className="py-32 px-4 bg-gradient-to-t from-black/50 to-transparent">
       <div className="max-w-4xl mx-auto">
         <div className="text-center glass-card p-12">
           <h2 className="text-3xl md:text-5xl font-light text-white mb-6 tracking-tighter">
@@ -31,26 +29,13 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            {hasAccess ? (
-              <button
-                onClick={onDownloadClick}
-                className="neuro-button px-8 py-4 text-white font-light text-lg tracking-wide hover:animate-glow"
-              >
+            {hasAccess ? <button onClick={onDownloadClick} className="neuro-button px-8 py-4 text-white font-light text-lg tracking-wide hover:animate-glow">
                 Download Veo 3 Now
-              </button>
-            ) : (
-              <button
-                onClick={onGetAccessClick}
-                className="neuro-button px-8 py-4 text-white font-light text-lg tracking-wide hover:animate-glow"
-              >
+              </button> : <button onClick={onGetAccessClick} className="neuro-button px-8 py-4 font-light text-lg tracking-wide hover:animate-glow text-zinc-950">
                 Get Early Access
-              </button>
-            )}
+              </button>}
             
-            <button
-              onClick={scrollToTop}
-              className="glass rounded-full px-6 py-4 text-gray-400 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 hover:scale-105"
-            >
+            <button onClick={scrollToTop} className="glass rounded-full px-6 py-4 text-gray-400 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 hover:scale-105">
               <ArrowUp size={20} strokeWidth={1} />
               <span>Back to Top</span>
             </button>
@@ -58,11 +43,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
 
           {/* Site Preview Image */}
           <div className="mt-16 mb-12">
-            <img 
-              src="https://google-veo3.com/prew.jpg" 
-              alt="Site Preview" 
-              className="w-full max-w-4xl mx-auto rounded-xl shadow-2xl"
-            />
+            <img src="https://google-veo3.com/prew.jpg" alt="Site Preview" className="w-full max-w-4xl mx-auto rounded-xl shadow-2xl" />
           </div>
 
           {/* Statistics */}
@@ -82,8 +63,6 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FooterCTA;
