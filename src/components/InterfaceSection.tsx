@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Lock, ArrowUp, Settings } from 'lucide-react';
+import { Lock, ArrowUp, Settings } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface ChatMessage {
   id: number;
@@ -14,11 +15,10 @@ interface ChatMessage {
 const InterfaceSection: React.FC = () => {
   const [selectedMode, setSelectedMode] = useState('Text to Video');
   const [prompt, setPrompt] = useState('');
-  const [showDropdown, setShowDropdown] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [outputsPerPrompt, setOutputsPerPrompt] = useState(1);
+  const [outputsPerPrompt, setOutputsPerPrompt] = useState('1');
   const [quality, setQuality] = useState('Fast (Veo 2)');
   
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -34,6 +34,8 @@ const InterfaceSection: React.FC = () => {
     "Bustling Tokyo street at night with neon lights",
     "Waves crashing against rocky cliffs in slow motion",
     "Time-lapse of flowers blooming in a garden",
+    "A majestic eagle soaring through cloudy skies",
+    "Underwater scene with colorful tropical fish swimming"
   ];
 
   const getCurrentDate = () => {
@@ -159,28 +161,30 @@ const InterfaceSection: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="text-white/70 text-sm font-light mb-2 block">Outputs per prompt</label>
-                  <select 
-                    value={outputsPerPrompt}
-                    onChange={(e) => setOutputsPerPrompt(Number(e.target.value))}
-                    className="w-full glass p-3 rounded-lg text-white bg-transparent border border-white/10"
-                  >
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                  </select>
+                  <Select value={outputsPerPrompt} onValueChange={setOutputsPerPrompt}>
+                    <SelectTrigger className="w-full glass border-white/10 text-white bg-transparent">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="bg-gray-800 border-white/10">
+                      <SelectItem value="1" className="text-white hover:bg-white/10">1</SelectItem>
+                      <SelectItem value="2" className="text-white hover:bg-white/10">2</SelectItem>
+                      <SelectItem value="3" className="text-white hover:bg-white/10">3</SelectItem>
+                      <SelectItem value="4" className="text-white hover:bg-white/10">4</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <label className="text-white/70 text-sm font-light mb-2 block">Quality</label>
-                  <select 
-                    value={quality}
-                    onChange={(e) => setQuality(e.target.value)}
-                    className="w-full glass p-3 rounded-lg text-white bg-transparent border border-white/10"
-                  >
-                    <option value="Fast (Veo 2)">Fast (Veo 2)</option>
-                    <option value="Quality (Veo 2)">Quality (Veo 2)</option>
-                    <option value="Highest Quality (Experimental Audio, Veo 3)">Highest Quality (Experimental Audio, Veo 3) - Upgrade</option>
-                  </select>
+                  <Select value={quality} onValueChange={setQuality}>
+                    <SelectTrigger className="w-full glass border-white/10 text-white bg-transparent">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="bg-gray-800 border-white/10">
+                      <SelectItem value="Fast (Veo 2)" className="text-white hover:bg-white/10">Fast (Veo 2)</SelectItem>
+                      <SelectItem value="Quality (Veo 2)" className="text-white hover:bg-white/10">Quality (Veo 2)</SelectItem>
+                      <SelectItem value="Highest Quality (Experimental Audio, Veo 3)" className="text-white hover:bg-white/10">Highest Quality (Experimental Audio, Veo 3) - Upgrade</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             </div>
@@ -234,46 +238,24 @@ const InterfaceSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {/* Mode Dropdown */}
             <div className="relative">
-              <button
-                onClick={() => setShowDropdown(!showDropdown)}
-                className="w-full glass p-4 rounded-lg flex items-center justify-between text-left"
-              >
-                <span className="text-white font-light">{selectedMode}</span>
-                <ChevronDown 
-                  size={20} 
-                  strokeWidth={1}
-                  className={`text-white/70 transition-transform duration-200 ${
-                    showDropdown ? 'rotate-180' : ''
-                  }`} 
-                />
-              </button>
-
-              {showDropdown && (
-                <div className="absolute bottom-full left-0 right-0 mb-2 glass-card rounded-lg overflow-hidden z-10">
+              <Select value={selectedMode} onValueChange={setSelectedMode}>
+                <SelectTrigger className="w-full glass border-white/10 text-white bg-transparent">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="bg-gray-800 border-white/10">
                   {modes.map((mode) => (
-                    <button
-                      key={mode.name}
-                      onClick={() => {
-                        if (mode.available) {
-                          setSelectedMode(mode.name);
-                          setShowDropdown(false);
-                        }
-                      }}
-                      className={`w-full p-4 text-left flex items-center justify-between transition-colors duration-200 ${
-                        mode.available 
-                          ? 'hover:bg-white/10 text-white' 
-                          : 'text-white/40 cursor-not-allowed'
-                      }`}
+                    <SelectItem 
+                      key={mode.name} 
+                      value={mode.name} 
                       disabled={!mode.available}
+                      className={`${mode.available ? 'text-white hover:bg-white/10' : 'text-white/40'} flex items-center justify-between`}
                     >
-                      <span className="font-light">{mode.name}</span>
-                      {!mode.available && (
-                        <Lock size={16} strokeWidth={1} className="text-white/40" />
-                      )}
-                    </button>
+                      <span>{mode.name}</span>
+                      {!mode.available && <Lock size={16} strokeWidth={1} className="ml-2" />}
+                    </SelectItem>
                   ))}
-                </div>
-              )}
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Prompt Input */}
@@ -297,8 +279,8 @@ const InterfaceSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Sample Prompts */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          {/* Sample Prompts - moved directly under input */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
             {samplePrompts.map((samplePrompt, index) => (
               <button
                 key={index}
@@ -308,17 +290,6 @@ const InterfaceSection: React.FC = () => {
                 {samplePrompt}
               </button>
             ))}
-          </div>
-
-          {/* Generate button */}
-          <div className="flex justify-start">
-            <button
-              onClick={handleSubmit}
-              disabled={!prompt.trim() || isGenerating}
-              className="button-3d px-6 py-3 text-white font-light tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isGenerating ? 'Generating...' : 'Generate Video'}
-            </button>
           </div>
         </div>
       </div>
