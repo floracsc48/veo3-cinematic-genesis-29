@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
 import StatsVideoSection from '../components/StatsVideoSection';
 import InterfaceSection from '../components/InterfaceSection';
+import AudioVideoSection from '../components/AudioVideoSection';
 import GallerySection from '../components/GallerySection';
 import FAQSection from '../components/FAQSection';
 import FooterCTA from '../components/FooterCTA';
@@ -50,6 +51,8 @@ const Index = () => {
       <div className="hidden md:block">
         <InterfaceSection />
       </div>
+      
+      <AudioVideoSection />
       
       <GallerySection />
       <FAQSection />
