@@ -13,6 +13,16 @@ export interface Translation {
   heroDescription: string;
   watchDemo: string;
   getAccess: string;
+  theFutureOfVideo: string;
+  startsHere: string;
+  heroMainDescription: string;
+  enterInviteCode: string;
+  yourInviteCode: string;
+  verifyAccess: string;
+  downloadVeoApp: string;
+  copyArchivePassword: string;
+  copied: string;
+  invalidAccessCode: string;
 
   // Features Section
   featuresTitle: string;
@@ -86,6 +96,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Transform your ideas into stunning videos with cutting-edge AI technology. Create professional content in minutes, not hours.",
     watchDemo: "Watch Demo",
     getAccess: "Get Access",
+    theFutureOfVideo: "The Future of Video",
+    startsHere: "Starts Here",
+    heroMainDescription: "Create photorealistic, cinematic videos from simple text prompts using Google Veo 3 — for free.",
+    enterInviteCode: "Enter invite code",
+    yourInviteCode: "Your invite code",
+    verifyAccess: "Verify Access",
+    downloadVeoApp: "Download Veo 3 App",
+    copyArchivePassword: "Copy Archive Password",
+    copied: "Copied!",
+    invalidAccessCode: "Invalid access code. Please try again.",
     
     featuresTitle: "Revolutionary",
     featuresDescription: "Experience the future of video creation with advanced AI capabilities.",
@@ -166,6 +186,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Превратите свои идеи в потрясающие видео с помощью передовых технологий ИИ. Создавайте профессиональный контент за минуты, а не часы.",
     watchDemo: "Смотреть демо",
     getAccess: "Получить доступ",
+    theFutureOfVideo: "Будущее видео",
+    startsHere: "начинается здесь",
+    heroMainDescription: "Создавайте фотореалистичные, кинематографические видео из простых текстовых запросов с помощью Google Veo 3 — бесплатно.",
+    enterInviteCode: "Введите код приглашения",
+    yourInviteCode: "Ваш код приглашения",
+    verifyAccess: "Проверить доступ",
+    downloadVeoApp: "Скачать приложение Veo 3",
+    copyArchivePassword: "Скопировать пароль архива",
+    copied: "Скопировано!",
+    invalidAccessCode: "Неверный код доступа. Попробуйте снова.",
     
     featuresTitle: "Революционные",
     featuresDescription: "Познайте будущее создания видео с передовыми возможностями ИИ.",
@@ -246,6 +276,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "使用尖端AI技术将您的想法转化为令人惊叹的视频。几分钟内创建专业内容，而不是几小时。",
     watchDemo: "观看演示",
     getAccess: "获得访问",
+    theFutureOfVideo: "视频的未来",
+    startsHere: "从这里开始",
+    heroMainDescription: "使用Google Veo 3从简单的文本提示创建逼真的电影级视频——免费。",
+    enterInviteCode: "输入邀请码",
+    yourInviteCode: "您的邀请码",
+    verifyAccess: "验证访问",
+    downloadVeoApp: "下载Veo 3应用",
+    copyArchivePassword: "复制存档密码",
+    copied: "已复制！",
+    invalidAccessCode: "无效的访问码。请重试。",
     
     featuresTitle: "革命性",
     featuresDescription: "体验具有先进AI功能的视频创作的未来。",
@@ -326,6 +366,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "अत्याधुनिक AI तकनीक के साथ अपने विचारों को शानदार वीडियो में बदलें। घंटों नहीं, मिनटों में पेशेवर सामग्री बनाएं।",
     watchDemo: "डेमो देखें",
     getAccess: "पहुंच प्राप्त करें",
+    theFutureOfVideo: "वीडियो का भविष्य",
+    startsHere: "यहां शुरू होता है",
+    heroMainDescription: "Google Veo 3 का उपयोग करके सरल टेक्स्ट प्रॉम्प्ट से फोटो-रियलिस्टिक, सिनेमैटिक वीडियो बनाएं — मुफ्त में।",
+    enterInviteCode: "निमंत्रण कोड दर्ज करें",
+    yourInviteCode: "आपका निमंत्रण कोड",
+    verifyAccess: "पहुंच सत्यापित करें",
+    downloadVeoApp: "Veo 3 ऐप डाउनलोड करें",
+    copyArchivePassword: "संग्रह पासवर्ड कॉपी करें",
+    copied: "कॉपी किया गया!",
+    invalidAccessCode: "अमान्य पहुंच कोड। कृपया फिर से प्रयास करें।",
     
     featuresTitle: "क्रांतिकारी",
     featuresDescription: "उन्नत AI क्षमताओं के साथ वीडियो निर्माण के भविष्य का अनुभव करें।",
@@ -406,6 +456,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Transforma tus ideas en videos impresionantes con tecnología de IA de vanguardia. Crea contenido profesional en minutos, no horas.",
     watchDemo: "Ver demo",
     getAccess: "Obtener acceso",
+    theFutureOfVideo: "El futuro del video",
+    startsHere: "comienza aquí",
+    heroMainDescription: "Crea videos cinematográficos y fotorrealistas a partir de simples indicaciones de texto usando Google Veo 3 — gratis.",
+    enterInviteCode: "Ingresa código de invitación",
+    yourInviteCode: "Tu código de invitación",
+    verifyAccess: "Verificar acceso",
+    downloadVeoApp: "Descargar app Veo 3",
+    copyArchivePassword: "Copiar contraseña del archivo",
+    copied: "¡Copiado!",
+    invalidAccessCode: "Código de acceso inválido. Inténtalo de nuevo.",
     
     featuresTitle: "Revolucionario",
     featuresDescription: "Experimenta el futuro de la creación de videos con capacidades avanzadas de IA.",
@@ -486,6 +546,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Transformez vos idées en vidéos époustouflantes avec une technologie IA de pointe. Créez du contenu professionnel en minutes, pas en heures.",
     watchDemo: "Voir la démo",
     getAccess: "Obtenir l'accès",
+    theFutureOfVideo: "L'avenir de la vidéo",
+    startsHere: "commence ici",
+    heroMainDescription: "Créez des vidéos cinématographiques et photoréalistes à partir de simples descriptions textuelles en utilisant Google Veo 3 — gratuitement.",
+    enterInviteCode: "Entrez le code d'invitation",
+    yourInviteCode: "Votre code d'invitation",
+    verifyAccess: "Vérifier l'accès",
+    downloadVeoApp: "Télécharger l'app Veo 3",
+    copyArchivePassword: "Copier le mot de passe de l'archive",
+    copied: "Copié !",
+    invalidAccessCode: "Code d'accès invalide. Veuillez réessayer.",
     
     featuresTitle: "Révolutionnaire",
     featuresDescription: "Découvrez l'avenir de la création vidéo avec des capacités IA avancées.",
@@ -566,6 +636,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "حول أفكارك إلى مقاطع فيديو مذهلة باستخدام تقنية الذكاء الاصطناعي المتطورة. أنشئ محتوى احترافي في دقائق وليس ساعات.",
     watchDemo: "مشاهدة العرض التوضيحي",
     getAccess: "الحصول على الوصول",
+    theFutureOfVideo: "مستقبل الفيديو",
+    startsHere: "يبدأ هنا",
+    heroMainDescription: "أنشئ مقاطع فيديو سينمائية وواقعية من نصوص بسيطة باستخدام Google Veo 3 — مجاناً.",
+    enterInviteCode: "أدخل رمز الدعوة",
+    yourInviteCode: "رمز الدعوة الخاص بك",
+    verifyAccess: "تحقق من الوصول",
+    downloadVeoApp: "تحميل تطبيق Veo 3",
+    copyArchivePassword: "نسخ كلمة مرور الأرشيف",
+    copied: "تم النسخ!",
+    invalidAccessCode: "رمز وصول غير صحيح. يرجى المحاولة مرة أخرى.",
     
     featuresTitle: "ثوري",
     featuresDescription: "اختبر مستقبل إنشاء الفيديو مع قدرات الذكاء الاصطناعي المتقدمة.",
@@ -586,7 +666,7 @@ export const translations: Record<string, Translation> = {
     audioVideoDescription: "يتيح لك Veo 3 إضافة مؤثرات صوتية وضوضاء محيطة وحتى حوارات إلى إبداعاتك - ينتج كل الصوت بشكل أصلي. كما يقدم أفضل جودة في فئته، متفوقاً في الفيزياء والواقعية والالتزام بالمطالبات.",
 
     readyToCreate: "جاهز لإنشاء",
-    amazingVideos: "مقاطع فيديو مذهلة?",
+    amazingVideos: "مقاطع فيديو مذهلة؟",
     footerCtaDescription: "انضم إلى آلاف المبدعين الذين يحولون أفكارهم بالفعل إلى مقاطع فيديو مذهلة مع Google Veo 3.",
     downloadVeoNow: "تحميل Veo الآن",
     backToTop: "العودة للأعلى",
@@ -646,6 +726,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Transforme suas ideias em vídeos impressionantes com tecnologia de IA de ponta. Crie conteúdo profissional em minutos, não horas.",
     watchDemo: "Ver demonstração",
     getAccess: "Obter acesso",
+    theFutureOfVideo: "O futuro do vídeo",
+    startsHere: "começa aqui",
+    heroMainDescription: "Crie vídeos cinematográficos e fotorrealistas a partir de simples prompts de texto usando Google Veo 3 — grátis.",
+    enterInviteCode: "Digite o código de convite",
+    yourInviteCode: "Seu código de convite",
+    verifyAccess: "Verificar acesso",
+    downloadVeoApp: "Baixar app Veo 3",
+    copyArchivePassword: "Copiar senha do arquivo",
+    copied: "Copiado!",
+    invalidAccessCode: "Código de acesso inválido. Tente novamente.",
     
     featuresTitle: "Revolucionário",
     featuresDescription: "Experimente o futuro da criação de vídeo com recursos avançados de IA.",
@@ -726,6 +816,16 @@ export const translations: Record<string, Translation> = {
     heroDescription: "Verwandeln Sie Ihre Ideen mit modernster KI-Technologie in beeindruckende Videos. Erstellen Sie professionelle Inhalte in Minuten, nicht Stunden.",
     watchDemo: "Demo ansehen",
     getAccess: "Zugang erhalten",
+    theFutureOfVideo: "Die Zukunft des Videos",
+    startsHere: "beginnt hier",
+    heroMainDescription: "Erstellen Sie fotorealistische, kinematografische Videos aus einfachen Textaufforderungen mit Google Veo 3 — kostenlos.",
+    enterInviteCode: "Einladungscode eingeben",
+    yourInviteCode: "Ihr Einladungscode",
+    verifyAccess: "Zugang überprüfen",
+    downloadVeoApp: "Veo 3 App herunterladen",
+    copyArchivePassword: "Archiv-Passwort kopieren",
+    copied: "Kopiert!",
+    invalidAccessCode: "Ungültiger Zugangscode. Bitte versuchen Sie es erneut.",
     
     featuresTitle: "Revolutionär",
     featuresDescription: "Erleben Sie die Zukunft der Videoerstellung mit fortschrittlichen KI-Fähigkeiten.",
