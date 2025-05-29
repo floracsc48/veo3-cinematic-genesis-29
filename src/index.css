@@ -71,6 +71,13 @@
     @apply backdrop-blur-xl bg-white/[0.03] border border-white/5 rounded-xl shadow-xl;
   }
   
+  /* Mobile-specific glass card override */
+  @media (max-width: 768px) {
+    .glass-card {
+      @apply bg-gray-900/80 backdrop-blur-none;
+    }
+  }
+  
   .button-3d {
     @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-700 to-gray-900 shadow-[0_8px_16px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.2)] transition-all duration-300 border border-white/10;
     transform: translateY(0px);

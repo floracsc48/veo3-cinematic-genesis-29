@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -15,7 +16,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   const [copied, setCopied] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   
   const { ref, isIntersecting } = useIntersectionObserver();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -51,7 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   };
 
   const toggleVideoPlayback = () => {
-    if (videoRef.current && !videoError) {
+    if (videoRef.current && videoLoaded) {
       if (isVideoPlaying) {
         videoRef.current.pause();
       } else {
@@ -64,50 +64,42 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   const handleVideoLoad = () => {
     console.log('Video loaded successfully');
     setVideoLoaded(true);
-    setVideoError(false);
   };
 
   const handleVideoError = () => {
     console.error('Video failed to load');
-    setVideoError(true);
     setVideoLoaded(false);
   };
 
   return (
     <section 
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
     >
-      {/* Background */}
-      {!videoError ? (
-        <>
-          {/* Video Background */}
-          <video
-            ref={videoRef}
-            className={`hero-video transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            onLoadedData={handleVideoLoad}
-            onError={handleVideoError}
-            onCanPlay={handleVideoLoad}
-          >
-            <source src="https://google-veo3.com/background.mp4" type="video/mp4" />
-          </video>
-        </>
-      ) : null}
-      
-      {/* Fallback gradient background */}
-      {(videoError || !videoLoaded) && (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 opacity-90" />
-      )}
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        onLoadedData={handleVideoLoad}
+        onError={handleVideoError}
+        onCanPlay={handleVideoLoad}
+        style={{ 
+          opacity: videoLoaded ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out'
+        }}
+      >
+        <source src="https://google-veo3.com/background.mp4" type="video/mp4" />
+      </video>
       
       {/* Video Overlay */}
       <div className="video-overlay" />
 
-      {/* Video Play/Pause Control - only show if video is loaded and no error */}
-      {videoLoaded && !videoError && (
+      {/* Video Play/Pause Control - only show if video is loaded */}
+      {videoLoaded && (
         <button
           onClick={toggleVideoPlayback}
           className="absolute bottom-8 right-8 z-20 glass p-3 rounded-full hover:bg-white/20 transition-all duration-300 opacity-70 hover:opacity-100"
@@ -212,22 +204,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
             </div>
           )}
         </div>
-      </div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
       </div>
     </section>
   );
