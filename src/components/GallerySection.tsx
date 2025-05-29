@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Play, Pause, Volume, VolumeOff, Plus } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import VideoModal from './VideoModal';
 
 const GallerySection: React.FC = () => {
-  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [mutedVideos, setMutedVideos] = useState<Set<number>>(new Set());
   const [modalData, setModalData] = useState<{videoUrl: string, prompt: string} | null>(null);
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -44,9 +44,10 @@ const GallerySection: React.FC = () => {
     },
   ];
 
-  const handleVideoToggle = (index: number) => {
-    setPlayingVideo(playingVideo === index ? null : index);
-  };
+  // Initialize all videos as muted for autoplay
+  useEffect(() => {
+    setMutedVideos(new Set(galleryItems.map((_, index) => index)));
+  }, []);
 
   const handleVolumeToggle = (index: number, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -101,18 +102,10 @@ const GallerySection: React.FC = () => {
                 <video
                   src={item.videoUrl}
                   className="w-full h-full object-cover"
+                  autoPlay
                   muted={mutedVideos.has(index)}
                   loop
                   playsInline
-                  ref={(video) => {
-                    if (video) {
-                      if (playingVideo === index) {
-                        video.play();
-                      } else {
-                        video.pause();
-                      }
-                    }
-                  }}
                 />
                 
                 <div className="absolute bottom-3 right-3 flex space-x-2">
@@ -124,16 +117,6 @@ const GallerySection: React.FC = () => {
                       <VolumeOff size={16} strokeWidth={1} className="text-white" />
                     ) : (
                       <Volume size={16} strokeWidth={1} className="text-white" />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => handleVideoToggle(index)}
-                    className="button-3d p-2"
-                  >
-                    {playingVideo === index ? (
-                      <Pause size={16} strokeWidth={1} className="text-white" />
-                    ) : (
-                      <Play size={16} strokeWidth={1} className="text-white" />
                     )}
                   </button>
                 </div>

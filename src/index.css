@@ -94,7 +94,20 @@
   }
   
   .neuro-button {
-    @apply button-3d;
+    @apply relative overflow-hidden rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.2)] transition-all duration-300 border border-orange-400/20;
+    background: linear-gradient(135deg, #ff8c00 0%, #ffd700 100%);
+    transform: translateY(0px);
+  }
+
+  .neuro-button:hover {
+    @apply shadow-[0_12px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-1px_0_rgba(0,0,0,0.3),0_0_30px_rgba(255,140,0,0.5)];
+    background: linear-gradient(135deg, #ff7700 0%, #ffcc00 100%);
+    transform: translateY(-2px);
+  }
+
+  .neuro-button:active {
+    @apply shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(0,0,0,0.2),inset_0_-1px_0_rgba(255,255,255,0.1)];
+    transform: translateY(1px);
   }
 
   .modal-backdrop {
