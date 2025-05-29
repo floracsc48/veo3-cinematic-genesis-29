@@ -111,7 +111,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               }} className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your invite code" autoFocus />
                     {error && <p className="text-red-400 text-sm mt-2 font-light">{error}</p>}
                   </div>
-                  <button type="submit" className="neuro-button w-full px-6 py-3 text-white font-light">
+                  <button type="submit" className="neuro-button w-full px-6 py-3 font-light text-zinc-950">
                     Verify Access
                   </button>
                 </form>}
