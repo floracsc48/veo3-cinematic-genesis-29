@@ -15,9 +15,17 @@ const LanguageSelector: React.FC = () => {
 
   const currentLangConfig = languages.find(lang => lang.code === currentLanguage);
 
+  const handleLanguageChange = (value: Language) => {
+    changeLanguage(value);
+    // Добавляем небольшую задержку перед перезагрузкой для сохранения в localStorage
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  };
+
   return (
     <div className="relative">
-      <Select value={currentLanguage} onValueChange={(value: Language) => changeLanguage(value)}>
+      <Select value={currentLanguage} onValueChange={handleLanguageChange}>
         <SelectTrigger className="glass border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 transition-colors duration-300 w-auto min-w-[120px]">
           <div className="flex items-center space-x-2">
             <Globe size={16} strokeWidth={1} className="text-white/70" />
