@@ -2,45 +2,14 @@
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useLanguage } from '../hooks/useLanguage';
+import { useTranslation } from '../translations';
 
 const FAQSection: React.FC = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
   const { ref, isIntersecting } = useIntersectionObserver();
-
-  const faqs = [
-    {
-      question: "What is Google Veo 3?",
-      answer: "Google Veo 3 is an advanced AI-powered video generation tool that creates high-quality, photorealistic videos from simple text descriptions. It represents the latest breakthrough in generative AI technology."
-    },
-    {
-      question: "Is Veo 3 really free to use?",
-      answer: "Yes! Veo 3 is completely free during the early access period. We believe in democratizing AI video creation and making this powerful technology accessible to everyone."
-    },
-    {
-      question: "What video formats and resolutions are supported?",
-      answer: "Veo 3 supports multiple output formats including MP4, WebM, and MOV. You can generate videos in resolutions up to 4K, with typical generation times of 10-30 seconds depending on complexity."
-    },
-    {
-      question: "How long can the generated videos be?",
-      answer: "Currently, Veo 3 can generate videos up to 60 seconds in length. This duration is perfect for social media content, marketing materials, and creative projects."
-    },
-    {
-      question: "Do I need any technical knowledge to use Veo 3?",
-      answer: "Not at all! Veo 3 is designed to be user-friendly. Simply describe what you want to see in natural language, and our AI will create the video for you. No video editing experience required."
-    },
-    {
-      question: "Can I use generated videos commercially?",
-      answer: "Yes, videos generated with Veo 3 can be used for commercial purposes. You retain full rights to the content you create, making it perfect for business and creative projects."
-    },
-    {
-      question: "What makes Veo 3 different from other AI video tools?",
-      answer: "Veo 3 offers superior video quality, faster generation times, and more accurate interpretation of text prompts. Our advanced neural networks create more realistic motion, lighting, and detail than previous generations."
-    },
-    {
-      question: "How do I get access to the full version?",
-      answer: "Download the Veo 3 app using the provided link and use the archive password to unlock all features. The full version includes additional generation modes and advanced customization options."
-    }
-  ];
+  const { currentLanguage } = useLanguage();
+  const t = useTranslation(currentLanguage);
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -54,16 +23,16 @@ const FAQSection: React.FC = () => {
           className={`text-center mb-20 animate-in ${isIntersecting ? 'visible' : ''}`}
         >
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
-            Frequently Asked
+            {t.faqTitle}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Questions</span>
           </h2>
           <p className="text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
-            Everything you need to know about Google Veo 3
+            {t.faqDescription}
           </p>
         </div>
 
         <div className="space-y-6">
-          {faqs.map((faq, index) => (
+          {t.faqQuestions.map((faq, index) => (
             <div
               key={index}
               className={`glass-card overflow-hidden animate-in ${

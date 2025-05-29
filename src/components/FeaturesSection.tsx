@@ -1,41 +1,46 @@
+
 import React from 'react';
 import { Zap, Brain, Sparkles, Globe, Shield, Rocket } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import TypingAnimation from './TypingAnimation';
+import { useLanguage } from '../hooks/useLanguage';
+import { useTranslation } from '../translations';
 
 const FeaturesSection: React.FC = () => {
   const { ref, isIntersecting } = useIntersectionObserver();
+  const { currentLanguage } = useLanguage();
+  const t = useTranslation(currentLanguage);
 
   const features = [
     {
       icon: Brain,
-      title: "Advanced AI Technology",
-      description: "Powered by cutting-edge artificial intelligence that understands context, style, and narrative flow to create compelling video content."
+      title: t.advancedAI,
+      description: t.advancedAIDesc
     },
     {
       icon: Zap,
-      title: "Lightning-Fast Generation",
-      description: "Generate high-quality videos in minutes, not hours. Our optimized algorithms ensure rapid processing without compromising quality."
+      title: t.lightningFast,
+      description: t.lightningFastDesc
     },
     {
       icon: Sparkles,
-      title: "Stunning Visual Quality",
-      description: "Experience cinema-grade video generation with realistic lighting, textures, and motion that bring your ideas to life."
+      title: t.stunningVisual,
+      description: t.stunningVisualDesc
     },
     {
       icon: Globe,
-      title: "Global Accessibility",
-      description: "Available worldwide with multi-language support, making AI video creation accessible to creators everywhere."
+      title: t.globalAccessibility,
+      description: t.globalAccessibilityDesc
     },
     {
       icon: Shield,
-      title: "Secure & Private",
-      description: "Your content and data are protected with enterprise-grade security. Create with confidence knowing your privacy is our priority."
+      title: t.securePrivate,
+      description: t.securePrivateDesc
     },
     {
       icon: Rocket,
-      title: "Continuous Innovation",
-      description: "Regular updates and new features ensure you always have access to the latest in AI video generation technology."
+      title: t.continuousInnovation,
+      description: t.continuousInnovationDesc
     }
   ];
 
@@ -52,7 +57,7 @@ const FeaturesSection: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
             <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
               <TypingAnimation 
-                text="Revolutionary Features" 
+                text={t.revolutionaryFeatures} 
                 speed={100} 
                 className="inline-block" 
                 shouldStart={isIntersecting} 
@@ -61,7 +66,7 @@ const FeaturesSection: React.FC = () => {
           </h2>
           <p className="text-xl font-light max-w-3xl mx-auto leading-relaxed">
             <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
-              Experience the next generation of AI video creation with cutting-edge technology and intuitive design
+              {t.featuresDescription}
             </span>
           </p>
         </div>

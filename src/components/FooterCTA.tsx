@@ -1,43 +1,66 @@
+
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
+import { useTranslation } from '../translations';
+
 interface FooterCTAProps {
   hasAccess: boolean;
   onGetAccessClick: () => void;
   onDownloadClick: () => void;
 }
+
 const FooterCTA: React.FC<FooterCTAProps> = ({
   hasAccess,
   onGetAccessClick,
   onDownloadClick
 }) => {
+  const { currentLanguage } = useLanguage();
+  const t = useTranslation(currentLanguage);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
-  return <section className="py-32 px-4 bg-gradient-to-t from-black/50 to-transparent">
+
+  return (
+    <section className="py-32 px-4 bg-gradient-to-t from-black/50 to-transparent">
       <div className="max-w-4xl mx-auto">
         <div className="text-center glass-card p-12">
           <h2 className="text-3xl md:text-5xl font-light text-white mb-6 tracking-tighter">
-            Ready to Create
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Amazing Videos?</span>
+            {t.readyToCreate}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> {t.amazingVideos}</span>
           </h2>
           
           <p className="text-xl text-white/70 font-light mb-12 leading-relaxed">
-            Join thousands of creators who are already transforming their ideas into stunning visual content
+            {t.footerCtaDescription}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            {hasAccess ? <button onClick={onDownloadClick} className="neuro-button px-8 py-4 text-white font-light text-lg tracking-wide hover:animate-glow">
-                Download Veo 3 Now
-              </button> : <button onClick={onGetAccessClick} className="neuro-button px-8 py-4 font-light text-lg tracking-wide hover:animate-glow text-zinc-950">
-                Get Early Access
-              </button>}
+            {hasAccess ? (
+              <button 
+                onClick={onDownloadClick} 
+                className="neuro-button px-8 py-4 text-white font-light text-lg tracking-wide hover:animate-glow"
+              >
+                {t.downloadVeoNow}
+              </button>
+            ) : (
+              <button 
+                onClick={onGetAccessClick} 
+                className="neuro-button px-8 py-4 font-light text-lg tracking-wide hover:animate-glow text-zinc-950"
+              >
+                {t.getEarlyAccess}
+              </button>
+            )}
             
-            <button onClick={scrollToTop} className="glass rounded-full px-6 py-4 text-gray-400 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 hover:scale-105">
+            <button 
+              onClick={scrollToTop} 
+              className="glass rounded-full px-6 py-4 text-gray-400 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 hover:scale-105"
+            >
               <ArrowUp size={20} strokeWidth={1} />
-              <span>Back to Top</span>
+              <span>{t.backToTop}</span>
             </button>
           </div>
 
@@ -50,19 +73,21 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 mt-16 pt-12 border-t border-white/10">
             <div className="mb-6 sm:mb-0">
               <div className="text-3xl font-light text-white mb-2">10,000+</div>
-              <div className="text-white/50 text-sm font-light">Videos Generated</div>
+              <div className="text-white/50 text-sm font-light">{t.videosGeneratedStat}</div>
             </div>
             <div className="mb-6 sm:mb-0">
               <div className="text-3xl font-light text-white mb-2">99.9%</div>
-              <div className="text-white/50 text-sm font-light">Uptime</div>
+              <div className="text-white/50 text-sm font-light">{t.uptimeStat}</div>
             </div>
             <div>
               <div className="text-3xl font-light text-white mb-2">24/7</div>
-              <div className="text-white/50 text-sm font-light">Availability</div>
+              <div className="text-white/50 text-sm font-light">{t.availabilityStat}</div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FooterCTA;
