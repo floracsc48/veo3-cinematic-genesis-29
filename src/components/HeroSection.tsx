@@ -87,7 +87,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tighter text-shadow">
           The Future of Video
           <br />
-          <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold md:font-light relative">
             <TypingAnimation text="Starts Here" speed={150} className="inline-block" shouldStart={isIntersecting} />
           </span>
         </h1>

@@ -49,7 +49,7 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
   }, []);
 
   return (
-    <span className={className}>
+    <span className={className} style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.3)' }}>
       {displayText}
       <span className={`inline-block transition-opacity duration-300 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
         |

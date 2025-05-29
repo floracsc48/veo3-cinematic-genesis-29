@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Zap, Brain, Sparkles, Globe, Shield, Rocket } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import TypingAnimation from './TypingAnimation';
 
 const FeaturesSection: React.FC = () => {
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -50,7 +50,14 @@ const FeaturesSection: React.FC = () => {
           className={`text-center mb-20 transition-all duration-1000 delay-300 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
-            <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">Revolutionary Features</span>
+            <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              <TypingAnimation 
+                text="Revolutionary Features" 
+                speed={100} 
+                className="inline-block" 
+                shouldStart={isIntersecting} 
+              />
+            </span>
           </h2>
           <p className="text-xl font-light max-w-3xl mx-auto leading-relaxed">
             <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
