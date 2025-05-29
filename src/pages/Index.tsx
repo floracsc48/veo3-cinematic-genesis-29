@@ -8,12 +8,9 @@ import GallerySection from '../components/GallerySection';
 import FAQSection from '../components/FAQSection';
 import FooterCTA from '../components/FooterCTA';
 import Footer from '../components/Footer';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Index = () => {
   const [hasAccess, setHasAccess] = useState(false);
-  
-  useScrollAnimation();
 
   const handleAccessGranted = () => {
     setHasAccess(true);
@@ -45,7 +42,12 @@ const Index = () => {
       </div>
       
       <FeaturesSection />
-      <InterfaceSection />
+      
+      {/* Hide InterfaceSection on mobile */}
+      <div className="hidden md:block">
+        <InterfaceSection />
+      </div>
+      
       <GallerySection />
       <FAQSection />
       

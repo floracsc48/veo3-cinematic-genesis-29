@@ -1,11 +1,9 @@
+
 import React from 'react';
 import { Sparkles, Zap, Infinity, Globe } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import TypingAnimation from './TypingAnimation';
 
 const FeaturesSection: React.FC = () => {
-  const { ref, isIntersecting } = useIntersectionObserver();
-
   const features = [
     {
       icon: Sparkles,
@@ -32,20 +30,13 @@ const FeaturesSection: React.FC = () => {
   return (
     <section id="features" className="py-32 px-4">
       <div className="max-w-7xl mx-auto">
-        <div 
-          ref={ref}
-          className={`text-center mb-20 animate-in ${isIntersecting ? 'visible' : ''}`}
-        >
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
-            {isIntersecting ? (
-              <TypingAnimation 
-                text="Revolutionary"
-                speed={120}
-                className="inline-block"
-              />
-            ) : (
-              'Revolutionary'
-            )}
+            <TypingAnimation 
+              text="Revolutionary"
+              speed={120}
+              className="inline-block"
+            />
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Features</span>
           </h2>
           <p className="text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
@@ -58,10 +49,7 @@ const FeaturesSection: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`glass-card p-8 group hover:bg-white/10 transition-all duration-500 animate-in ${
-                isIntersecting ? 'visible' : ''
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="glass-card p-8 group hover:bg-white/10 transition-all duration-500"
             >
               <div className="mb-6">
                 <feature.icon 
