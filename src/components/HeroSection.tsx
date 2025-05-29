@@ -62,24 +62,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
   };
 
   const handleVideoLoad = () => {
-    console.log('Video loaded successfully');
+    console.log('Hero video loaded successfully');
     setVideoLoaded(true);
   };
 
-  const handleVideoError = () => {
-    console.error('Video failed to load');
+  const handleVideoError = (e: any) => {
+    console.error('Hero video failed to load:', e);
     setVideoLoaded(false);
   };
 
   return (
     <section 
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
     >
       {/* Video Background */}
       <video
         ref={videoRef}
-        className="hero-video"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
         muted
         loop
@@ -88,15 +88,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
         onError={handleVideoError}
         onCanPlay={handleVideoLoad}
         style={{ 
-          opacity: videoLoaded ? 1 : 0,
-          transition: 'opacity 0.5s ease-in-out'
+          opacity: videoLoaded ? 0.8 : 0,
+          transition: 'opacity 1s ease-in-out'
         }}
       >
         <source src="https://google-veo3.com/background.mp4" type="video/mp4" />
       </video>
       
       {/* Video Overlay */}
-      <div className="video-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-black/60 z-1" />
 
       {/* Video Play/Pause Control - only show if video is loaded */}
       {videoLoaded && (
@@ -125,11 +125,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
               text="Starts Here"
               speed={150}
               className="inline-block"
+              shouldStart={isIntersecting}
             />
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-white/70 mb-12 font-light leading-relaxed">
+        <p className="text-xl md:text-2xl text-white/90 mb-12 font-light leading-relaxed text-shadow">
           Create photorealistic, cinematic videos from simple text prompts using Google Veo 3 — for free.
         </p>
 

@@ -3,7 +3,6 @@ import React from 'react';
 import { Zap, Shield, Clock, Sparkles, Play, Wand2 } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import TypingAnimation from './TypingAnimation';
-import CounterAnimation from './CounterAnimation';
 
 const FeaturesSection: React.FC = () => {
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -41,24 +40,6 @@ const FeaturesSection: React.FC = () => {
     }
   ];
 
-  const stats = [
-    { 
-      value: 10000, 
-      suffix: '+', 
-      label: 'Videos Generated' 
-    },
-    { 
-      value: 99.9, 
-      suffix: '%', 
-      label: 'Uptime' 
-    },
-    { 
-      value: 24, 
-      suffix: '/7', 
-      label: 'Availability' 
-    }
-  ];
-
   return (
     <section id="features" className="py-32 px-4 relative overflow-hidden">
       {/* Background Elements */}
@@ -80,26 +61,6 @@ const FeaturesSection: React.FC = () => {
           <p className="text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
             Experience the next generation of AI video creation with cutting-edge technology and intuitive design
           </p>
-        </div>
-
-        {/* Stats Section */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 animate-in ${isIntersecting ? 'visible' : ''}`}>
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="text-center"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="text-4xl md:text-5xl font-light text-white mb-2">
-                <CounterAnimation 
-                  targetValue={stat.value}
-                  suffix={stat.suffix}
-                  duration={2500}
-                />
-              </div>
-              <p className="text-white/70 font-light tracking-wide">{stat.label}</p>
-            </div>
-          ))}
         </div>
 
         {/* Features Grid */}

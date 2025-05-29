@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
+import StatsVideoSection from '../components/StatsVideoSection';
 import InterfaceSection from '../components/InterfaceSection';
 import GallerySection from '../components/GallerySection';
 import FAQSection from '../components/FAQSection';
@@ -42,6 +43,8 @@ const Index = () => {
       </div>
       
       <FeaturesSection />
+      
+      <StatsVideoSection />
       
       {/* Hide InterfaceSection on mobile */}
       <div className="hidden md:block">
