@@ -18,6 +18,29 @@ export interface Translation {
   // Features Section
   featuresTitle: string;
   featuresDescription: string;
+  revolutionaryFeatures: string;
+  advancedAI: string;
+  advancedAIDesc: string;
+  lightningFast: string;
+  lightningFastDesc: string;
+  stunningVisual: string;
+  stunningVisualDesc: string;
+  globalAccessibility: string;
+  globalAccessibilityDesc: string;
+  securePrivate: string;
+  securePrivateDesc: string;
+  continuousInnovation: string;
+  continuousInnovationDesc: string;
+
+  // Footer CTA Section
+  readyToCreate: string;
+  amazingVideos: string;
+  footerCtaDescription: string;
+  downloadVeoNow: string;
+  backToTop: string;
+  videosGeneratedStat: string;
+  uptimeStat: string;
+  availabilityStat: string;
 
   // FAQ Section
   faqTitle: string;
@@ -50,6 +73,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Revolutionary",
     featuresDescription: "Experience the future of video creation with advanced AI capabilities.",
+    revolutionaryFeatures: "Revolutionary Features",
+    advancedAI: "Advanced AI",
+    advancedAIDesc: "Powered by cutting-edge artificial intelligence for unparalleled video generation quality.",
+    lightningFast: "Lightning Fast",
+    lightningFastDesc: "Generate professional videos in minutes, not hours. Experience unprecedented speed.",
+    stunningVisual: "Stunning Visuals",
+    stunningVisualDesc: "Create breathtaking videos with photorealistic quality and cinematic effects.",
+    globalAccessibility: "Global Accessibility",
+    globalAccessibilityDesc: "Available worldwide with multi-language support and cloud-based processing.",
+    securePrivate: "Secure & Private",
+    securePrivateDesc: "Your content is protected with enterprise-grade security and privacy standards.",
+    continuousInnovation: "Continuous Innovation",
+    continuousInnovationDesc: "Regular updates with new features and improvements to keep you ahead.",
+
+    readyToCreate: "Ready to Create",
+    amazingVideos: "Amazing Videos?",
+    footerCtaDescription: "Join thousands of creators who are already transforming their ideas into stunning videos with Google Veo 3.",
+    downloadVeoNow: "Download Veo Now",
+    backToTop: "Back to Top",
+    videosGeneratedStat: "Videos Generated",
+    uptimeStat: "Uptime",
+    availabilityStat: "Availability",
     
     faqTitle: "Frequently Asked",
     faqDescription: "Get answers to common questions about Google Veo 3.",
@@ -93,6 +138,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Революционные",
     featuresDescription: "Познайте будущее создания видео с передовыми возможностями ИИ.",
+    revolutionaryFeatures: "Революционные возможности",
+    advancedAI: "Продвинутый ИИ",
+    advancedAIDesc: "Работает на основе передового искусственного интеллекта для непревзойденного качества генерации видео.",
+    lightningFast: "Молниеносная скорость",
+    lightningFastDesc: "Создавайте профессиональные видео за минуты, а не часы. Испытайте беспрецедентную скорость.",
+    stunningVisual: "Потрясающие визуальные эффекты",
+    stunningVisualDesc: "Создавайте захватывающие видео с фотореалистичным качеством и кинематографическими эффектами.",
+    globalAccessibility: "Глобальная доступность",
+    globalAccessibilityDesc: "Доступно по всему миру с поддержкой нескольких языков и облачной обработкой.",
+    securePrivate: "Безопасность и конфиденциальность",
+    securePrivateDesc: "Ваш контент защищен корпоративными стандартами безопасности и конфиденциальности.",
+    continuousInnovation: "Непрерывные инновации",
+    continuousInnovationDesc: "Регулярные обновления с новыми функциями и улучшениями, чтобы держать вас впереди.",
+
+    readyToCreate: "Готовы создавать",
+    amazingVideos: "потрясающие видео?",
+    footerCtaDescription: "Присоединяйтесь к тысячам создателей, которые уже превращают свои идеи в потрясающие видео с Google Veo 3.",
+    downloadVeoNow: "Скачать Veo сейчас",
+    backToTop: "Наверх",
+    videosGeneratedStat: "Видео создано",
+    uptimeStat: "Время работы",
+    availabilityStat: "Доступность",
     
     faqTitle: "Часто задаваемые",
     faqDescription: "Получите ответы на распространенные вопросы о Google Veo 3.",
@@ -136,6 +203,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "革命性",
     featuresDescription: "体验具有先进AI功能的视频创作的未来。",
+    revolutionaryFeatures: "革命性功能",
+    advancedAI: "先进AI",
+    advancedAIDesc: "由尖端人工智能驱动，提供无与伦比的视频生成质量。",
+    lightningFast: "闪电般快速",
+    lightningFastDesc: "几分钟内生成专业视频，而不是几小时。体验前所未有的速度。",
+    stunningVisual: "令人惊叹的视觉效果",
+    stunningVisualDesc: "创建具有逼真质量和电影效果的精彩视频。",
+    globalAccessibility: "全球可访问性",
+    globalAccessibilityDesc: "全球可用，支持多语言和基于云的处理。",
+    securePrivate: "安全私密",
+    securePrivateDesc: "您的内容受到企业级安全和隐私标准的保护。",
+    continuousInnovation: "持续创新",
+    continuousInnovationDesc: "定期更新新功能和改进，让您保持领先。",
+
+    readyToCreate: "准备创建",
+    amazingVideos: "令人惊叹的视频？",
+    footerCtaDescription: "加入已经使用Google Veo 3将想法转化为令人惊叹视频的数千名创作者。",
+    downloadVeoNow: "立即下载Veo",
+    backToTop: "返回顶部",
+    videosGeneratedStat: "生成的视频",
+    uptimeStat: "正常运行时间",
+    availabilityStat: "可用性",
     
     faqTitle: "常见",
     faqDescription: "获得关于Google Veo 3常见问题的答案。",
@@ -179,6 +268,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "क्रांतिकारी",
     featuresDescription: "उन्नत AI क्षमताओं के साथ वीडियो निर्माण के भविष्य का अनुभव करें।",
+    revolutionaryFeatures: "क्रांतिकारी विशेषताएं",
+    advancedAI: "उन्नत AI",
+    advancedAIDesc: "अद्वितीय वीडियो जेनरेशन गुणवत्ता के लिए अत्याधुनिक कृत्रिम बुद्धिमत्ता द्वारा संचालित।",
+    lightningFast: "बिजली की तेजी",
+    lightningFastDesc: "घंटों नहीं, मिनटों में पेशेवर वीडियो बनाएं। अभूतपूर्व गति का अनुभव करें।",
+    stunningVisual: "शानदार दृश्य",
+    stunningVisualDesc: "फोटो-रियलिस्टिक गुणवत्ता और सिनेमैटिक प्रभावों के साथ लुभावने वीडियो बनाएं।",
+    globalAccessibility: "वैश्विक पहुंच",
+    globalAccessibilityDesc: "बहु-भाषा समर्थन और क्लाउड-आधारित प्रसंस्करण के साथ दुनिया भर में उपलब्ध।",
+    securePrivate: "सुरक्षित और निजी",
+    securePrivateDesc: "आपकी सामग्री एंटरप्राइज़-ग्रेड सुरक्षा और गोपनीयता मानकों के साथ सुरक्षित है।",
+    continuousInnovation: "निरंतर नवाचार",
+    continuousInnovationDesc: "आपको आगे रखने के लिए नई सुविधाओं और सुधारों के साथ नियमित अपडेट।",
+
+    readyToCreate: "बनाने के लिए तैयार",
+    amazingVideos: "अद्भुत वीडियो?",
+    footerCtaDescription: "हजारों रचनाकारों में शामिल हों जो पहले से ही Google Veo 3 के साथ अपने विचारों को शानदार वीडियो में बदल रहे हैं।",
+    downloadVeoNow: "अभी Veo डाउनलोड करें",
+    backToTop: "शीर्ष पर वापस जाएं",
+    videosGeneratedStat: "वीडियो बनाए गए",
+    uptimeStat: "अपटाइम",
+    availabilityStat: "उपलब्धता",
     
     faqTitle: "अक्सर पूछे जाने वाले",
     faqDescription: "Google Veo 3 के बारे में सामान्य प्रश्नों के उत्तर प्राप्त करें।",
@@ -222,6 +333,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Revolucionario",
     featuresDescription: "Experimenta el futuro de la creación de videos con capacidades avanzadas de IA.",
+    revolutionaryFeatures: "Características revolucionarias",
+    advancedAI: "IA Avanzada",
+    advancedAIDesc: "Impulsado por inteligencia artificial de vanguardia para una calidad de generación de video sin igual.",
+    lightningFast: "Rapidez Extrema",
+    lightningFastDesc: "Genera videos profesionales en minutos, no horas. Experimenta una velocidad sin precedentes.",
+    stunningVisual: "Visuales Impresionantes",
+    stunningVisualDesc: "Crea videos impresionantes con calidad fotorrealista y efectos cinematográficos.",
+    globalAccessibility: "Accesibilidad Global",
+    globalAccessibilityDesc: "Disponible en todo el mundo con soporte multiidioma y procesamiento basado en la nube.",
+    securePrivate: "Seguro y Privado",
+    securePrivateDesc: "Tu contenido está protegido con estándares de seguridad y privacidad de nivel empresarial.",
+    continuousInnovation: "Innovación Continua",
+    continuousInnovationDesc: "Actualizaciones regulares con nuevas características y mejoras para mantenerte a la vanguardia.",
+
+    readyToCreate: "¿Listo para crear",
+    amazingVideos: "videos increíbles?",
+    footerCtaDescription: "Únete a miles de creadores que ya están transformando sus ideas en videos impresionantes con Google Veo 3.",
+    downloadVeoNow: "Descargar Veo ahora",
+    backToTop: "Volver arriba",
+    videosGeneratedStat: "Videos generados",
+    uptimeStat: "Tiempo de actividad",
+    availabilityStat: "Disponibilidad",
     
     faqTitle: "Preguntas frecuentes",
     faqDescription: "Obtén respuestas a preguntas comunes sobre Google Veo 3.",
@@ -265,6 +398,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Révolutionnaire",
     featuresDescription: "Découvrez l'avenir de la création vidéo avec des capacités IA avancées.",
+    revolutionaryFeatures: "Fonctionnalités révolutionnaires",
+    advancedAI: "IA Avancée",
+    advancedAIDesc: "Alimenté par une intelligence artificielle de pointe pour une qualité de génération vidéo inégalée.",
+    lightningFast: "Rapidité Fulgurante",
+    lightningFastDesc: "Générez des vidéos professionnelles en minutes, pas en heures. Découvrez une vitesse sans précédent.",
+    stunningVisual: "Visuels Époustouflants",
+    stunningVisualDesc: "Créez des vidéos à couper le souffle avec une qualité photoréaliste et des effets cinématographiques.",
+    globalAccessibility: "Accessibilité Mondiale",
+    globalAccessibilityDesc: "Disponible dans le monde entier avec support multilingue et traitement basé sur le cloud.",
+    securePrivate: "Sécurisé et Privé",
+    securePrivateDesc: "Votre contenu est protégé par des normes de sécurité et de confidentialité de niveau entreprise.",
+    continuousInnovation: "Innovation Continue",
+    continuousInnovationDesc: "Mises à jour régulières avec de nouvelles fonctionnalités et améliorations pour vous garder en avance.",
+
+    readyToCreate: "Prêt à créer des",
+    amazingVideos: "vidéos incroyables ?",
+    footerCtaDescription: "Rejoignez des milliers de créateurs qui transforment déjà leurs idées en vidéos époustouflantes avec Google Veo 3.",
+    downloadVeoNow: "Télécharger Veo maintenant",
+    backToTop: "Retour en haut",
+    videosGeneratedStat: "Vidéos générées",
+    uptimeStat: "Temps de fonctionnement",
+    availabilityStat: "Disponibilité",
     
     faqTitle: "Questions fréquemment",
     faqDescription: "Obtenez des réponses aux questions courantes sur Google Veo 3.",
@@ -308,6 +463,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "ثوري",
     featuresDescription: "اختبر مستقبل إنشاء الفيديو مع قدرات الذكاء الاصطناعي المتقدمة.",
+    revolutionaryFeatures: "ميزات ثورية",
+    advancedAI: "ذكاء اصطناعي متقدم",
+    advancedAIDesc: "مدعوم بذكاء اصطناعي متطور لجودة توليد فيديو لا مثيل لها.",
+    lightningFast: "سرعة البرق",
+    lightningFastDesc: "أنشئ مقاطع فيديو احترافية في دقائق وليس ساعات. اختبر سرعة لا مثيل لها.",
+    stunningVisual: "مرئيات مذهلة",
+    stunningVisualDesc: "أنشئ مقاطع فيديو مذهلة بجودة واقعية وتأثيرات سينمائية.",
+    globalAccessibility: "إمكانية الوصول العالمية",
+    globalAccessibilityDesc: "متاح في جميع أنحاء العالم مع دعم متعدد اللغات ومعالجة قائمة على السحابة.",
+    securePrivate: "آمن وخاص",
+    securePrivateDesc: "محتواك محمي بمعايير أمان وخصوصية على مستوى المؤسسة.",
+    continuousInnovation: "ابتكار مستمر",
+    continuousInnovationDesc: "تحديثات منتظمة بميزات وتحسينات جديدة لإبقائك في المقدمة.",
+
+    readyToCreate: "جاهز لإنشاء",
+    amazingVideos: "مقاطع فيديو مذهلة؟",
+    footerCtaDescription: "انضم إلى آلاف المبدعين الذين يحولون أفكارهم بالفعل إلى مقاطع فيديو مذهلة مع Google Veo 3.",
+    downloadVeoNow: "تحميل Veo الآن",
+    backToTop: "العودة للأعلى",
+    videosGeneratedStat: "مقاطع الفيديو المُنتجة",
+    uptimeStat: "وقت التشغيل",
+    availabilityStat: "التوفر",
     
     faqTitle: "الأسئلة المتكررة",
     faqDescription: "احصل على إجابات للأسئلة الشائعة حول Google Veo 3.",
@@ -351,6 +528,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Revolucionário",
     featuresDescription: "Experimente o futuro da criação de vídeo com recursos avançados de IA.",
+    revolutionaryFeatures: "Recursos revolucionários",
+    advancedAI: "IA Avançada",
+    advancedAIDesc: "Alimentado por inteligência artificial de ponta para qualidade incomparável de geração de vídeo.",
+    lightningFast: "Rapidez Relâmpago",
+    lightningFastDesc: "Gere vídeos profissionais em minutos, não horas. Experimente velocidade sem precedentes.",
+    stunningVisual: "Visuais Deslumbrantes",
+    stunningVisualDesc: "Crie vídeos de tirar o fôlego com qualidade fotorrealista e efeitos cinematográficos.",
+    globalAccessibility: "Acessibilidade Global",
+    globalAccessibilityDesc: "Disponível mundialmente com suporte multi-idioma e processamento baseado em nuvem.",
+    securePrivate: "Seguro e Privado",
+    securePrivateDesc: "Seu conteúdo é protegido com padrões de segurança e privacidade de nível empresarial.",
+    continuousInnovation: "Inovação Contínua",
+    continuousInnovationDesc: "Atualizações regulares com novos recursos e melhorias para mantê-lo à frente.",
+
+    readyToCreate: "Pronto para criar",
+    amazingVideos: "vídeos incríveis?",
+    footerCtaDescription: "Junte-se a milhares de criadores que já estão transformando suas ideias em vídeos impressionantes com Google Veo 3.",
+    downloadVeoNow: "Baixar Veo agora",
+    backToTop: "Voltar ao topo",
+    videosGeneratedStat: "Vídeos gerados",
+    uptimeStat: "Tempo de atividade",
+    availabilityStat: "Disponibilidade",
     
     faqTitle: "Perguntas frequentes",
     faqDescription: "Obtenha respostas para perguntas comuns sobre o Google Veo 3.",
@@ -394,6 +593,28 @@ export const translations: Record<string, Translation> = {
     
     featuresTitle: "Revolutionär",
     featuresDescription: "Erleben Sie die Zukunft der Videoerstellung mit fortschrittlichen KI-Fähigkeiten.",
+    revolutionaryFeatures: "Revolutionäre Funktionen",
+    advancedAI: "Fortschrittliche KI",
+    advancedAIDesc: "Angetrieben von modernster künstlicher Intelligenz für unvergleichliche Videogenerierungsqualität.",
+    lightningFast: "Blitzschnell",
+    lightningFastDesc: "Erstellen Sie professionelle Videos in Minuten, nicht Stunden. Erleben Sie beispiellose Geschwindigkeit.",
+    stunningVisual: "Atemberaubende Visuals",
+    stunningVisualDesc: "Erstellen Sie atemberaubende Videos mit fotorealistischer Qualität und kinematografischen Effekten.",
+    globalAccessibility: "Globale Zugänglichkeit",
+    globalAccessibilityDesc: "Weltweit verfügbar mit mehrsprachiger Unterstützung und cloudbasierter Verarbeitung.",
+    securePrivate: "Sicher und Privat",
+    securePrivateDesc: "Ihr Inhalt ist durch Sicherheits- und Datenschutzstandards auf Unternehmensebene geschützt.",
+    continuousInnovation: "Kontinuierliche Innovation",
+    continuousInnovationDesc: "Regelmäßige Updates mit neuen Funktionen und Verbesserungen, um Sie an der Spitze zu halten.",
+
+    readyToCreate: "Bereit, erstaunliche",
+    amazingVideos: "Videos zu erstellen?",
+    footerCtaDescription: "Schließen Sie sich Tausenden von Erstellern an, die bereits ihre Ideen mit Google Veo 3 in atemberaubende Videos verwandeln.",
+    downloadVeoNow: "Veo jetzt herunterladen",
+    backToTop: "Nach oben",
+    videosGeneratedStat: "Generierte Videos",
+    uptimeStat: "Betriebszeit",
+    availabilityStat: "Verfügbarkeit",
     
     faqTitle: "Häufig gestellte",
     faqDescription: "Erhalten Sie Antworten auf häufige Fragen zu Google Veo 3.",
