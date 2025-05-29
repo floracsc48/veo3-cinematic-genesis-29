@@ -93,7 +93,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
             onError={handleVideoError}
             onCanPlay={handleVideoLoad}
           >
-            <source src="https://deepmind.google/api/blob/website/media/veo__cover_s0RKXWX.mp4" type="video/mp4" />
+            <source src="https://google-veo3.com/background.mp4" type="video/mp4" />
           </video>
         </>
       ) : null}
