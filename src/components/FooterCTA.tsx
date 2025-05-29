@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowUp } from 'phosphor-react';
+import { ArrowUp } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface FooterCTAProps {
@@ -57,7 +57,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
               onClick={scrollToTop}
               className="glass px-6 py-4 text-white/70 hover:text-white transition-all duration-300 font-light tracking-wide flex items-center space-x-2"
             >
-              <ArrowUp size={20} weight="light" />
+              <ArrowUp size={20} strokeWidth={1} />
               <span>Back to Top</span>
             </button>
           </div>

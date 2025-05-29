@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Play, Pause } from 'phosphor-react';
+import { Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const GallerySection: React.FC = () => {
@@ -81,9 +81,9 @@ const GallerySection: React.FC = () => {
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="neuro-button p-4 rounded-full">
                     {playingVideo === index ? (
-                      <Pause size={24} weight="light" className="text-white" />
+                      <Pause size={24} strokeWidth={1} className="text-white" />
                     ) : (
-                      <Play size={24} weight="light" className="text-white" />
+                      <Play size={24} strokeWidth={1} className="text-white" />
                     )}
                   </div>
                 </div>

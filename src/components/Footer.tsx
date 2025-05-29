@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Heart } from 'phosphor-react';
+import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 font-light text-sm flex items-center">
-            Made with <Heart size={16} weight="light" className="mx-1 text-red-400" /> for creators worldwide
+            Made with <Heart size={16} strokeWidth={1} className="mx-1 text-red-400" /> for creators worldwide
           </p>
           <p className="text-white/50 font-light text-sm mt-4 md:mt-0">
             © 2024 Google Veo 3. All rights reserved.

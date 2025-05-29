@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Plus, Minus } from 'phosphor-react';
+import { Plus, Minus } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FAQSection: React.FC = () => {
@@ -80,9 +80,9 @@ const FAQSection: React.FC = () => {
                 </h3>
                 <div className="flex-shrink-0">
                   {openFAQ === index ? (
-                    <Minus size={24} weight="light" className="text-white/70" />
+                    <Minus size={24} strokeWidth={1} className="text-white/70" />
                   ) : (
-                    <Plus size={24} weight="light" className="text-white/70" />
+                    <Plus size={24} strokeWidth={1} className="text-white/70" />
                   )}
                 </div>
               </button>

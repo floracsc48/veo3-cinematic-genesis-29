@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { CaretDown, Lock, Play } from 'phosphor-react';
+import { ChevronDown, Lock, Play } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const InterfaceSection: React.FC = () => {
@@ -91,9 +91,9 @@ const InterfaceSection: React.FC = () => {
                 className="w-full glass p-4 rounded-lg flex items-center justify-between text-left"
               >
                 <span className="text-white font-light">{selectedMode}</span>
-                <CaretDown 
+                <ChevronDown 
                   size={20} 
-                  weight="light" 
+                  strokeWidth={1}
                   className={`text-white/70 transition-transform duration-200 ${
                     showDropdown ? 'rotate-180' : ''
                   }`} 
@@ -121,7 +121,7 @@ const InterfaceSection: React.FC = () => {
                     >
                       <span className="font-light">{mode.name}</span>
                       {!mode.available && (
-                        <Lock size={16} weight="light" className="text-white/40" />
+                        <Lock size={16} strokeWidth={1} className="text-white/40" />
                       )}
                     </button>
                   ))}
@@ -159,7 +159,7 @@ const InterfaceSection: React.FC = () => {
                 disabled={!prompt.trim() || isGenerating}
                 className="neuro-button px-8 py-3 text-white font-light tracking-wide disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
               >
-                <Play size={20} weight="light" />
+                <Play size={20} strokeWidth={1} />
                 <span>{isGenerating ? 'Generating...' : 'Generate Video'}</span>
               </button>
             </form>

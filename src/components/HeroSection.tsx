@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Copy, Check } from 'phosphor-react';
+import { Copy, Check } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface HeroSectionProps {
@@ -138,12 +138,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
                 >
                   {copied ? (
                     <>
-                      <Check size={16} weight="light" />
+                      <Check size={16} strokeWidth={1} />
                       <span>Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy size={16} weight="light" />
+                      <Copy size={16} strokeWidth={1} />
                       <span>Copy Archive Password</span>
                     </>
                   )}

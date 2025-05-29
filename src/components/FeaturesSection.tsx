@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Sparkle, Lightning, Infinity, Globe } from 'phosphor-react';
+import { Sparkles, Zap, Infinity, Globe } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeaturesSection: React.FC = () => {
@@ -8,12 +8,12 @@ const FeaturesSection: React.FC = () => {
 
   const features = [
     {
-      icon: Sparkle,
+      icon: Sparkles,
       title: 'AI-Powered Generation',
       description: 'Advanced neural networks create stunning videos from your text descriptions with unprecedented quality and realism.',
     },
     {
-      icon: Lightning,
+      icon: Zap,
       title: 'Lightning Fast',
       description: 'Generate high-quality videos in seconds, not hours. Our optimized infrastructure ensures rapid processing.',
     },
@@ -58,7 +58,7 @@ const FeaturesSection: React.FC = () => {
               <div className="mb-6">
                 <feature.icon 
                   size={48} 
-                  weight="light" 
+                  strokeWidth={1}
                   className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" 
                 />
               </div>

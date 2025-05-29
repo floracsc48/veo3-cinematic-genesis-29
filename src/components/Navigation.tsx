@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { List, X } from 'phosphor-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
   hasAccess: boolean;
@@ -89,7 +89,7 @@ const Navigation: React.FC<NavigationProps> = ({
               className="md:hidden p-2 text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={24} weight="light" /> : <List size={24} weight="light" />}
+              {isMobileMenuOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
             </button>
           </div>
         </div>
