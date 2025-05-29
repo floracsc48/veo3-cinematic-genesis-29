@@ -31,23 +31,19 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
   }, [currentIndex, text, speed]);
 
   useEffect(() => {
-    if (isComplete) {
-      const cursorTimer = setInterval(() => {
-        setShowCursor(prev => !prev);
-      }, 500);
+    const cursorTimer = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
 
-      return () => clearInterval(cursorTimer);
-    }
-  }, [isComplete]);
+    return () => clearInterval(cursorTimer);
+  }, []);
 
   return (
     <span className={className}>
       {displayText}
-      {(showCursor || !isComplete) && (
-        <span className={`inline-block transition-opacity duration-300 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
-          |
-        </span>
-      )}
+      <span className={`inline-block transition-opacity duration-300 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
+        |
+      </span>
     </span>
   );
 };

@@ -1,6 +1,8 @@
+
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import TypingAnimation from './TypingAnimation';
 
 interface HeroSectionProps {
   hasAccess: boolean;
@@ -99,7 +101,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hasAccess, onAccessGranted })
           The Future of Video
           <br />
           <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Starts Here
+            <TypingAnimation 
+              text="Starts Here"
+              speed={150}
+              className="inline-block"
+            />
           </span>
         </h1>
         

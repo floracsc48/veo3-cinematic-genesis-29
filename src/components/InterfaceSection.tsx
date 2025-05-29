@@ -121,11 +121,14 @@ const InterfaceSection: React.FC = () => {
   );
 
   return (
-    <section id="interface" className="py-32 px-4 bg-gradient-to-b from-transparent to-black/20">
+    <section 
+      id="interface" 
+      ref={ref}
+      className={`py-32 px-4 bg-gradient-to-b from-transparent to-black/20 transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    >
       <div className="max-w-6xl mx-auto">
         <div 
-          ref={ref}
-          className={`text-center mb-20 animate-in ${isIntersecting ? 'visible' : ''}`}
+          className={`text-center mb-20 transition-all duration-1000 delay-300 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tighter">
             Veo 3 Interface
@@ -136,7 +139,7 @@ const InterfaceSection: React.FC = () => {
           </p>
         </div>
 
-        <div className={`glass-card p-8 animate-in ${isIntersecting ? 'visible' : ''}`}>
+        <div className={`glass-card p-8 transition-all duration-1000 delay-500 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Navigation Breadcrumb */}
           <div className="flex justify-between items-center mb-8">
             <div className="text-white/50 font-light text-sm tracking-wide">
