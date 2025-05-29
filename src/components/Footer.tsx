@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Heart } from 'lucide-react';
-
 const Footer: React.FC = () => {
-  return (
-    <footer className="py-12 px-4 border-t border-white/10 bg-black/20">
+  return <footer className="py-12 px-4 border-t border-white/10 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -48,13 +45,9 @@ const Footer: React.FC = () => {
           <p className="text-white/50 font-light text-sm flex items-center">
             Made with <Heart size={16} strokeWidth={1} className="mx-1 text-red-400" /> for creators worldwide
           </p>
-          <p className="text-white/50 font-light text-sm mt-4 md:mt-0">
-            © 2024 Google Veo 3. All rights reserved.
-          </p>
+          <p className="text-white/50 font-light text-sm mt-4 md:mt-0">© 2025 Google-Veo3. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
