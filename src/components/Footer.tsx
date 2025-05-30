@@ -21,11 +21,11 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-white/70 font-light text-sm mb-4 uppercase tracking-wider">{t.followUs}</h4>
               <ul className="space-y-2">
-                <li><a href="https://x.com/googledeepmind" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">X</a></li>
-                <li><a href="https://www.instagram.com/googledeepmind" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Instagram</a></li>
-                <li><a href="https://www.youtube.com/@googledeepmind" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">YouTube</a></li>
-                <li><a href="https://www.linkedin.com/company/googledeepmind/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">LinkedIn</a></li>
-                <li><a href="https://github.com/google-deepmind" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">GitHub</a></li>
+                <li><a href="https://x.com/googledeepmind" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">X</a></li>
+                <li><a href="https://www.instagram.com/googledeepmind" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Instagram</a></li>
+                <li><a href="https://www.youtube.com/@googledeepmind" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">YouTube</a></li>
+                <li><a href="https://www.linkedin.com/company/googledeepmind/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">LinkedIn</a></li>
+                <li><a href="https://github.com/google-deepmind" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">GitHub</a></li>
               </ul>
             </div>
           </div>
@@ -44,11 +44,11 @@ const Footer: React.FC = () => {
             <h4 className="text-white/70 font-light text-sm mb-4 uppercase tracking-wider">{t.models}</h4>
             <p className="text-white/50 font-light text-xs mb-3">{t.modelsDescription}</p>
             <ul className="space-y-2">
-              <li><a href="https://gemini.google.com/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Gemini</a></li>
-              <li><a href="https://deepmind.google/models/gemma/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Gemma</a></li>
-              <li><a href="https://google-veo3.com/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Veo</a></li>
-              <li><a href="https://deepmind.google/models/imagen/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Imagen</a></li>
-              <li><a href="https://deepmind.google/models/lyria/" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Lyria</a></li>
+              <li><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Gemini</a></li>
+              <li><a href="https://deepmind.google/models/gemma/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Gemma</a></li>
+              <li><a href="https://google-veo3.com/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Veo</a></li>
+              <li><a href="https://deepmind.google/models/imagen/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Imagen</a></li>
+              <li><a href="https://deepmind.google/models/lyria/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">Lyria</a></li>
             </ul>
           </div>
           
@@ -67,15 +67,15 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-white/50 font-light text-xs">
-            <a href="https://www.google.com/" className="hover:text-white/70 transition-colors flex items-center">
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors flex items-center">
               <span className="mr-1">🔍</span> Google
             </a>
             <span>•</span>
-            <a href="https://about.google/products/" className="hover:text-white/70 transition-colors">{t.googleProducts}</a>
+            <a href="https://about.google/products/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">{t.googleProducts}</a>
             <span>•</span>
-            <a href="https://policies.google.com/privacy" className="hover:text-white/70 transition-colors">{t.privacy}</a>
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">{t.privacy}</a>
             <span>•</span>
-            <a href="https://policies.google.com/terms" className="hover:text-white/70 transition-colors">{t.terms}</a>
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">{t.terms}</a>
           </div>
         </div>
       </div>
