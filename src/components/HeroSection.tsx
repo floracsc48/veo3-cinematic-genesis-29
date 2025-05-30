@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -42,11 +43,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     
     if (config && config.hasAccess) {
       setError('');
-      setCurrentConfig({
+      const newConfig = {
         downloadUrl: config.downloadUrl,
         archivePassword: config.archivePassword
-      });
-      onAccessGranted(config);
+      };
+      setCurrentConfig(newConfig);
+      onAccessGranted(newConfig);
       setShowInviteInput(false);
     } else {
       setError(t.invalidAccessCode);

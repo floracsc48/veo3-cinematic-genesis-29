@@ -12,22 +12,13 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  defaultDownloadUrl: 'https://pixeldrain.com/api/file/qYNYLRhk?download',
+  defaultDownloadUrl: 'https://pixeldrain.com/api/file/xpbUD5ZM?download',
   defaultArchivePassword: 'Soft2025',
   inviteCodes: {
     'Veo3FreeNow!': {
       hasAccess: true,
-      // Использует значения по умолчанию, если не указаны
-    },
-    'PremiumAccess2025': {
-      hasAccess: true,
-      downloadUrl: 'https://pixeldrain.com/api/file/premium123?download',
-      archivePassword: 'Premium2025',
-    },
-    'BetaTest': {
-      hasAccess: true,
-      downloadUrl: 'https://pixeldrain.com/api/file/beta456?download',
-      archivePassword: 'Beta2025',
+      downloadUrl: 'https://pixeldrain.com/api/file/xpbUD5ZM?download',
+      archivePassword: 'Soft2025',
     },
   },
 };
