@@ -55,8 +55,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white/70 font-light text-sm mb-4 uppercase tracking-wider">{t.legal}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">{t.privacyPolicy}</a></li>
-              <li><a href="#" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">{t.termsOfService}</a></li>
+              <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">{t.privacyPolicy}</a></li>
+              <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white/70 transition-colors font-light text-sm">{t.termsOfService}</a></li>
             </ul>
           </div>
         </div>
