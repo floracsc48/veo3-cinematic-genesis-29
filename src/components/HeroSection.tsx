@@ -1,14 +1,14 @@
-
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import TypingAnimation from './TypingAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { useTranslation } from '../translations';
+import { getConfigForInviteCode, isValidInviteCode } from '../config/siteConfig';
 
 interface HeroSectionProps {
   hasAccess: boolean;
-  onAccessGranted: () => void;
+  onAccessGranted: (config: { downloadUrl: string; archivePassword: string }) => void;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -24,6 +24,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const [copied, setCopied] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [currentConfig, setCurrentConfig] = useState({ downloadUrl: '', archivePassword: '' });
   const {
     ref,
     isIntersecting
@@ -37,9 +38,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   const handleInviteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (inviteCode.trim() === 'Veo3FreeNow!') {
+    const config = getConfigForInviteCode(inviteCode.trim());
+    
+    if (config && config.hasAccess) {
       setError('');
-      onAccessGranted();
+      setCurrentConfig({
+        downloadUrl: config.downloadUrl,
+        archivePassword: config.archivePassword
+      });
+      onAccessGranted(config);
       setShowInviteInput(false);
     } else {
       setError(t.invalidAccessCode);
@@ -48,7 +55,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   const handleCopyPassword = async () => {
     try {
-      await navigator.clipboard.writeText('Soft2025');
+      await navigator.clipboard.writeText(currentConfig.archivePassword);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -57,7 +64,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   const handleDownload = () => {
-    window.open('https://pixeldrain.com/api/file/qYNYLRhk?download', '_blank');
+    window.open(currentConfig.downloadUrl, '_blank');
   };
 
   const toggleVideoPlayback = () => {

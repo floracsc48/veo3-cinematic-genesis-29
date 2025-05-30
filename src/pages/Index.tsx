@@ -10,12 +10,18 @@ import GallerySection from '../components/GallerySection';
 import FAQSection from '../components/FAQSection';
 import FooterCTA from '../components/FooterCTA';
 import Footer from '../components/Footer';
+import { siteConfig } from '../config/siteConfig';
 
 const Index = () => {
   const [hasAccess, setHasAccess] = useState(false);
+  const [currentConfig, setCurrentConfig] = useState({
+    downloadUrl: siteConfig.defaultDownloadUrl,
+    archivePassword: siteConfig.defaultArchivePassword
+  });
 
-  const handleAccessGranted = () => {
+  const handleAccessGranted = (config: { downloadUrl: string; archivePassword: string }) => {
     setHasAccess(true);
+    setCurrentConfig(config);
   };
 
   const handleGetAccessClick = () => {
@@ -24,8 +30,12 @@ const Index = () => {
   };
 
   const handleDownloadClick = () => {
-    const heroSection = document.querySelector('#hero');
-    heroSection?.scrollIntoView({ behavior: 'smooth' });
+    if (hasAccess) {
+      window.open(currentConfig.downloadUrl, '_blank');
+    } else {
+      const heroSection = document.querySelector('#hero');
+      heroSection?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
