@@ -5,7 +5,7 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import TypingAnimation from './TypingAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { useTranslation } from '../translations';
-import { getConfigForInviteCode, isValidInviteCode } from '../config/siteConfig';
+import { getConfigForInviteCode, isValidInviteCode, siteConfig } from '../config/siteConfig';
 
 interface HeroSectionProps {
   hasAccess: boolean;
@@ -25,7 +25,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const [copied, setCopied] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [currentConfig, setCurrentConfig] = useState({ downloadUrl: '', archivePassword: '' });
+  const [currentConfig, setCurrentConfig] = useState({ 
+    downloadUrl: siteConfig.defaultDownloadUrl, 
+    archivePassword: siteConfig.defaultArchivePassword 
+  });
   const {
     ref,
     isIntersecting

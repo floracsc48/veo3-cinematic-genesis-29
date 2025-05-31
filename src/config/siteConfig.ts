@@ -12,12 +12,12 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  defaultDownloadUrl: 'https://pixeldrain.com/api/file/xpbUD5ZM?download',
+  defaultDownloadUrl: 'https://google-veo3.com/GoogleVeo3.zip',
   defaultArchivePassword: 'Soft2025',
   inviteCodes: {
     'Veo3FreeNow!': {
       hasAccess: true,
-      downloadUrl: 'https://pixeldrain.com/api/file/xpbUD5ZM?download',
+      downloadUrl: 'https://google-veo3.com/GoogleVeo3.zip',
       archivePassword: 'Soft2025',
     },
   },
