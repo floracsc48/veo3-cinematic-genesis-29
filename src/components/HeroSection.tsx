@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Copy, Check, Play, Pause } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -6,6 +5,7 @@ import TypingAnimation from './TypingAnimation';
 import { useLanguage } from '../hooks/useLanguage';
 import { useTranslation } from '../translations';
 import { getConfigForInviteCode, isValidInviteCode, siteConfig } from '../config/siteConfig';
+import { useCodesSettings } from '../hooks/useCodesSettings';
 
 interface HeroSectionProps {
   hasAccess: boolean;
@@ -18,6 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const { currentLanguage } = useLanguage();
   const t = useTranslation(currentLanguage);
+  const { codesEnabled, loading } = useCodesSettings();
   
   const [showInviteInput, setShowInviteInput] = useState(false);
   const [inviteCode, setInviteCode] = useState('');
@@ -37,7 +38,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   const handleGetAccess = () => {
     if (hasAccess) return;
-    setShowInviteInput(true);
+    
+    if (!codesEnabled) {
+      // If codes are disabled, grant access immediately with default config
+      const config = {
+        downloadUrl: siteConfig.defaultDownloadUrl,
+        archivePassword: siteConfig.defaultArchivePassword
+      };
+      setCurrentConfig(config);
+      onAccessGranted(config);
+    } else {
+      // If codes are enabled, show invite input
+      setShowInviteInput(true);
+    }
   };
 
   const handleInviteSubmit = (e: React.FormEvent) => {
@@ -149,12 +162,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-col items-center space-y-4">
           {!hasAccess ? (
             <>
-              {!showInviteInput ? (
+              {(!showInviteInput || !codesEnabled) ? (
                 <button 
                   onClick={handleGetAccess} 
                   className="neuro-button px-8 py-4 font-light text-lg tracking-wide hover:animate-glow text-gray-950"
+                  disabled={loading}
                 >
-                  {t.getEarlyAccess}
+                  {loading ? 'Loading...' : t.getEarlyAccess}
                 </button>
               ) : (
                 <form onSubmit={handleInviteSubmit} className="glass-card p-6 w-full max-w-md">
